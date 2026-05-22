@@ -1,0 +1,175 @@
+/* ================= CONTACT PAGE ================= */
+
+.contact-page{
+  width:100%;
+  min-height:100vh;
+
+  padding:120px 20px;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
+  background:#ffffff;
+
+  color:#111;
+}
+
+/* ================= TITLE ================= */
+
+.contact-page h1{
+  font-size:48px;
+
+  margin-bottom:40px;
+
+  color:#111;
+
+  font-weight:700;
+}
+
+/* ================= FORM BOX ================= */
+
+.contact-box{
+  width:100%;
+  max-width:500px;
+
+  display:flex;
+  flex-direction:column;
+
+  gap:20px;
+
+  padding:40px;
+
+  border-radius:24px;
+
+  background:#ffffff;
+
+  border:1px solid #e5e5e5;
+
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+
+  transition:0.3s;
+}
+
+.contact-box:hover{
+  transform:translateY(-5px);
+
+  box-shadow:0 15px 35px rgba(0,0,0,0.12);
+}
+
+/* ================= INPUTS ================= */
+
+.contact-box input,
+.contact-box textarea{
+  width:100%;
+
+  padding:16px;
+
+  border:1px solid #ddd;
+
+  outline:none;
+
+  border-radius:14px;
+
+  background:#f8f8f8;
+
+  color:#111;
+
+  font-size:15px;
+
+  transition:0.3s;
+}
+
+/* INPUT FOCUS */
+
+.contact-box input:focus,
+.contact-box textarea:focus{
+  border-color:orange;
+
+  background:#fff;
+
+  box-shadow:0 0 10px rgba(255,165,0,0.2);
+}
+
+/* ================= PLACEHOLDER ================= */
+
+.contact-box input::placeholder,
+.contact-box textarea::placeholder{
+  color:#888;
+}
+
+/* ================= TEXTAREA ================= */
+
+.contact-box textarea{
+  height:140px;
+
+  resize:none;
+}
+
+/* ================= BUTTON ================= */
+
+.contact-box button{
+  padding:15px;
+
+  border:none;
+
+  border-radius:35px;
+
+  background:orange;
+
+  color:white;
+
+  font-size:16px;
+
+  font-weight:bold;
+
+  cursor:pointer;
+
+  transition:0.3s;
+}
+
+/* BUTTON HOVER */
+
+.contact-box button:hover{
+  background:#ff8800;
+
+  transform:translateY(-3px);
+
+  box-shadow:0 8px 20px rgba(255,165,0,0.3);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px){
+
+  .contact-page{
+    padding:100px 15px;
+  }
+
+  .contact-page h1{
+    font-size:36px;
+  }
+
+  .contact-box{
+    padding:30px 20px;
+  }
+
+}
+
+@media(max-width:480px){
+
+  .contact-page h1{
+    font-size:30px;
+  }
+
+  .contact-box{
+    border-radius:18px;
+  }
+
+  .contact-box input,
+  .contact-box textarea{
+    padding:14px;
+  }
+
+}

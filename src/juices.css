@@ -1,0 +1,285 @@
+/* ===== PAGE LAYOUT ===== */
+
+.juice-page-wrapper {
+  display: flex;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fff8f0, #ffe9d6);
+  font-family: Arial, sans-serif;
+}
+
+/* ===== MAIN CONTENT ===== */
+
+.juice-main-section {
+  flex: 1;
+  padding: 30px;
+  margin-left: 250px;
+  width: calc(100% - 250px);
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* ===== TITLE ===== */
+
+.juice-heading-title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 25px;
+  color: #ff6f00;
+  font-weight: bold;
+}
+
+/* ===== GRID ===== */
+
+.juice-drink-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ===== CARD ===== */
+
+.juice-drink-card {
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.juice-drink-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== IMAGE ===== */
+
+.juice-drink-image {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* ===== NAME ===== */
+
+.juice-drink-name {
+  margin-top: 10px;
+  margin-bottom: 6px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #333;
+  line-height: 1.2;
+}
+
+/* ===== PRICE ===== */
+
+.juice-drink-price {
+  font-size: 17px;
+  font-weight: bold;
+  color: #ef6c00;
+  margin-bottom: 10px;
+}
+
+/* ===== BUTTON ===== */
+
+.juice-cart-button {
+ 
+  background: #ff2d55;
+  color: white;
+
+  border: none;
+  padding: 9px 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-weight: bold;
+  display: block;
+  margin: 0 auto;
+}
+
+.juice-description {
+  color: #666;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  margin: 8px 0;
+  text-align: center;
+  min-height: 45px;
+}
+
+.juice-cart-button:hover {
+  transform: scale(1.05);
+}
+
+/* ===== PAGINATION ===== */
+
+.juice-pagination-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.juice-pagination-btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  background: #ececec;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-weight: bold;
+}
+
+.juice-pagination-btn:hover:not(:disabled) {
+  
+  background: #ff2d55;
+  color: white;
+
+}
+
+.active-juice-page {
+  
+  background: #ff2d55;
+  color: white;
+
+}
+
+.juice-pagination-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ===== TABLET ===== */
+
+@media (max-width: 1024px) {
+
+  .juice-drink-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+}
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 768px) {
+
+  .juice-main-section {
+    margin-left: 0;
+    width: 100%;
+    padding: 15px;
+  }
+
+  .juice-drink-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .juice-heading-title {
+    font-size: 26px;
+  }
+
+}
+
+/* ===== SMALL MOBILE ===== */
+
+@media (max-width: 480px) {
+
+  .juice-drink-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .juice-drink-card {
+    padding: 12px;
+  }
+
+  .juice-drink-image {
+    height: 190px;
+  }
+
+}
+
+
+/* ================= PAGE ================= */
+
+.juice-page-wrapper {
+  display: flex;
+  min-height: 100vh;
+}
+
+.juice-main-section {
+  flex: 1;
+  padding: 30px;
+  margin-left: 250px;
+}
+
+/* GRID */
+
+.juice-drink-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* CARD */
+
+.juice-drink-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 15px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* IMAGE WRAPPER (IMPORTANT) */
+
+.juice-img-wrapper {
+  position: relative;
+}
+
+/* IMAGE */
+
+.juice-drink-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+/* ================= BADGES ON IMAGE ================= */
+
+.juice-badge-wrapper {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+/* JUICE BADGE */
+
+.juice-type-badge {
+  background: #1e88e5;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+/* OFF BADGE */
+
+.juice-off-badge {
+  background: #ff2d55;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: bold;
+}

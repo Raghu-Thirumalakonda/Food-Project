@@ -1,0 +1,295 @@
+/* ================= ORDERS PAGE ================= */
+
+.orders-page{
+  min-height:100vh;
+  width:100%;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
+  padding:120px 20px;
+
+  background:#ffffff;
+
+  color:#111;
+
+  font-family:Poppins, sans-serif;
+
+  gap:25px;
+}
+
+/* ================= TITLE ================= */
+
+.orders-page h1{
+  font-size:48px;
+
+  color:#ff8800;
+
+  font-weight:700;
+
+  margin-bottom:10px;
+}
+
+/* ================= ORDER CARD ================= */
+
+.order-card{
+  width:100%;
+  max-width:350px;
+
+  background:#ffffff;
+
+  padding:30px 25px;
+
+  border-radius:24px;
+
+  text-align:center;
+
+  border:1px solid #e5e5e5;
+
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+
+  transition:0.3s;
+}
+
+.order-card:hover{
+  transform:translateY(-8px);
+
+  box-shadow:0 15px 35px rgba(0,0,0,0.12);
+
+  border-color:orange;
+}
+
+/* ================= FOOD IMAGE ================= */
+
+.order-card img{
+  width:100%;
+  height:180px;
+
+  object-fit:cover;
+
+  border-radius:16px;
+
+  margin-bottom:18px;
+}
+
+/* ================= ORDER NAME ================= */
+
+.order-card h2{
+  font-size:26px;
+
+  color:#222;
+
+  margin-bottom:12px;
+}
+
+/* ================= TEXT ================= */
+
+.order-card p{
+  color:#666;
+
+  font-size:15px;
+
+  margin-bottom:8px;
+}
+
+/* ================= ORDER BUTTON ================= */
+
+.order-card button{
+  margin-top:18px;
+
+  padding:12px 22px;
+
+  border:none;
+
+  border-radius:30px;
+
+  background:orange;
+
+  color:white;
+
+  font-size:15px;
+
+  font-weight:bold;
+
+  cursor:pointer;
+
+  transition:0.3s;
+}
+
+.order-card button:hover{
+  background:#ff8800;
+
+  transform:scale(1.05);
+
+  box-shadow:0 8px 20px rgba(255,165,0,0.3);
+}
+
+/* ================= EMPTY TEXT ================= */
+
+.empty{
+  font-size:20px;
+
+  color:#777;
+
+  margin-top:20px;
+}
+
+/* ================= BACK BUTTON ================= */
+
+.back-btn{
+  margin-top:10px;
+
+  padding:12px 22px;
+
+  border:none;
+
+  border-radius:30px;
+
+  background:#111;
+
+  color:white;
+
+  font-weight:600;
+
+  cursor:pointer;
+
+  transition:0.3s;
+}
+
+.back-btn:hover{
+  background:#333;
+
+  transform:translateY(-3px);
+}
+
+/* ================= SUCCESS BOX ================= */
+
+.success-box{
+  text-align:center;
+
+  padding:40px 30px;
+
+  background:#ffffff;
+
+  border-radius:24px;
+
+  border:1px solid #e5e5e5;
+
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+
+  max-width:500px;
+}
+
+.success-box h2{
+  font-size:34px;
+
+  color:#4caf50;
+
+  margin-bottom:15px;
+}
+
+.success-box p{
+  color:#666;
+
+  font-size:16px;
+
+  line-height:1.6;
+}
+
+/* ================= ORDER INFO ================= */
+
+.order-info{
+  background:#f8f8f8;
+
+  padding:25px;
+
+  border-radius:18px;
+
+  margin-top:25px;
+
+  border:1px solid #e5e5e5;
+}
+
+.order-info h3{
+  color:#222;
+
+  margin-bottom:12px;
+}
+
+.order-info p{
+  color:#555;
+
+  margin-bottom:8px;
+}
+
+/* ================= HOME BUTTON ================= */
+
+.home-btn{
+  margin-top:25px;
+
+  padding:14px 25px;
+
+  background:#4caf50;
+
+  border:none;
+
+  border-radius:30px;
+
+  color:white;
+
+  font-size:15px;
+
+  font-weight:bold;
+
+  cursor:pointer;
+
+  transition:0.3s;
+}
+
+.home-btn:hover{
+  background:#43a047;
+
+  transform:translateY(-3px);
+
+  box-shadow:0 8px 20px rgba(76,175,80,0.3);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px){
+
+  .orders-page{
+    padding:100px 15px;
+  }
+
+  .orders-page h1{
+    font-size:36px;
+  }
+
+  .order-card{
+    max-width:100%;
+  }
+
+}
+
+@media(max-width:480px){
+
+  .orders-page h1{
+    font-size:30px;
+  }
+
+  .order-card{
+    padding:22px 18px;
+  }
+
+  .order-card img{
+    height:160px;
+  }
+
+  .success-box{
+    padding:30px 20px;
+  }
+
+}

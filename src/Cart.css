@@ -1,0 +1,427 @@
+/* ================= MAIN CONTAINER ================= */
+
+.cart-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  gap: 30px;
+  padding: 30px;
+  background: #f5f7fb;
+  font-family: Arial, sans-serif;
+}
+
+/* ================= LEFT SIDE ================= */
+
+.cart-left {
+  flex: 2;
+}
+
+/* ================= HEADER ================= */
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.cart-header h1 {
+  font-size: 2rem;
+  color: #222;
+}
+
+/* ================= CLEAR BUTTON ================= */
+
+.clear-btn {
+  border: none;
+  outline: none;
+  padding: 12px 22px;
+  background: #ff3b30;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.clear-btn:hover {
+  transform: scale(1.05);
+}
+
+/* ================= EMPTY TEXT ================= */
+
+.empty {
+  text-align: center;
+  margin-top: 100px;
+  color: gray;
+  font-size: 1.5rem;
+}
+
+/* ================= CART CARD ================= */
+
+.cart-card {
+  background: white;
+  border-radius: 18px;
+  padding: 18px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.cart-card:hover {
+  transform: translateY(-3px);
+}
+
+/* ================= IMAGE ================= */
+
+.cart-card img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+/* ================= DETAILS ================= */
+
+.cart-details {
+  flex: 1;
+}
+
+.cart-details h2 {
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.price {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #ff5722;
+  margin-bottom: 15px;
+}
+
+/* ================= QUANTITY ================= */
+
+.qty-box {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.qty-box button {
+  width: 35px;
+  height: 35px;
+  border: none;
+  border-radius: 50%;
+  background: #111827;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.qty-box button:hover {
+  transform: scale(1.1);
+}
+
+.qty-box span {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* ================= REMOVE BUTTON ================= */
+
+.remove-btn {
+  border: none;
+  padding: 12px 18px;
+  background: #ff2d55;
+  color: white;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.remove-btn:hover {
+  transform: scale(1.05);
+}
+
+/* ================= RIGHT SIDE ================= */
+
+.cart-right {
+  flex: 1;
+  background: white;
+  border-radius: 20px;
+  padding: 25px;
+  height: fit-content;
+  position: sticky;
+  top: 20px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+.cart-right h2 {
+  margin-bottom: 20px;
+  color: #111827;
+}
+
+/* ================= DISCOUNT BUTTONS ================= */
+
+.discount-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.discount-buttons button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background: #e5e7eb;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.discount-buttons button:hover {
+  transform: scale(1.05);
+}
+
+.discount-buttons .active {
+  background: #111827;
+  color: white;
+}
+
+/* ================= COUPON BOX ================= */
+
+.coupon-box {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.coupon-input {
+  flex: 1;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.coupon-input:focus {
+  border-color: #2563eb;
+}
+
+/* ================= APPLY BUTTON ================= */
+
+.apply-btn {
+  border: none;
+  padding: 12px 18px;
+  background: #2563eb;
+  color: white;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.apply-btn:hover {
+  transform: scale(1.05);
+}
+
+/* ================= REMOVE COUPON ================= */
+
+.remove-coupon-btn {
+  width: 100%;
+  border: none;
+  padding: 12px;
+  margin-top: 15px;
+  background: #ff2d55;
+  color: white;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.remove-coupon-btn:hover {
+  transform: scale(1.03);
+}
+
+/* ================= SUMMARY ================= */
+
+.summary-box {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ================= ROW ================= */
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  color: #333;
+}
+
+.discount span:last-child {
+  color: green;
+  font-weight: bold;
+}
+
+.total {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #111827;
+}
+
+/* ================= PAYMENT METHOD ================= */
+
+.payment-method {
+  margin-top: 25px;
+}
+
+.payment-method h3 {
+  margin-bottom: 15px;
+  color: #111827;
+}
+
+.payment-buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.payment-buttons button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  background: #e5e7eb;
+  transition: 0.3s;
+}
+
+.payment-buttons button:hover {
+  transform: scale(1.05);
+  background: #d1d5db;
+}
+
+/* ================= QR SECTION ================= */
+
+.qr-section {
+  margin-top: 25px;
+  text-align: center;
+  animation: fadeIn 0.4s ease;
+}
+
+.qr-section h3 {
+  margin-bottom: 20px;
+  color: #111827;
+}
+
+.qr-box {
+  background: white;
+  padding: 18px;
+  border-radius: 18px;
+  display: inline-block;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.qr-section p {
+  margin-top: 15px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #374151;
+}
+
+/* ================= CARD PAYMENT ================= */
+
+.card-payment {
+  margin-top: 25px;
+  text-align: center;
+  padding: 20px;
+  border-radius: 15px;
+  background: #f3f4f6;
+}
+
+.card-payment h3 {
+  color: #111827;
+}
+
+/* ================= CHECKOUT BUTTON ================= */
+
+.checkout-btn {
+  width: 100%;
+  border: none;
+  padding: 14px;
+  margin-top: 10px;
+  background: #10b981;
+  color: white;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.checkout-btn:hover {
+  transform: scale(1.03);
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes fadeIn {
+
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+  .cart-container {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .cart-right {
+    position: static;
+  }
+
+  .cart-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cart-card img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .payment-buttons {
+    flex-direction: column;
+  }
+
+}

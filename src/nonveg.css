@@ -1,0 +1,228 @@
+/* ================= PAGE LAYOUT ================= */
+
+.nonveg-page-wrapper {
+  display: flex;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fff5f5, #ffecec);
+  font-family: Arial, sans-serif;
+}
+
+/* ================= MAIN CONTENT ================= */
+
+.nonveg-main-section {
+  flex: 1;
+  padding: 30px;
+  margin-left: 250px;
+  width: calc(100% - 250px);
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* ================= TITLE ================= */
+
+.nonveg-heading-title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: #c62828;
+  font-weight: bold;
+}
+
+/* ================= GRID ================= */
+
+.nonveg-food-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+/* ================= CARD ================= */
+
+.nonveg-food-card {
+  position: relative;
+  background: #fff;
+  border-radius: 18px;
+  padding: 15px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  text-align: center;
+  transition: 0.3s ease;
+  overflow: hidden;
+}
+
+.nonveg-food-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+}
+
+/* ================= IMAGE ================= */
+
+.nonveg-food-image {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 14px;
+  transition: 0.4s ease;
+}
+
+.nonveg-food-card:hover .nonveg-food-image {
+  transform: scale(1.05);
+}
+
+/* ================= BADGES ================= */
+
+.nonveg-badge-wrapper {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  justify-content: space-between; /* ✅ split left & right */
+  z-index: 10;
+}
+/* NON VEG BADGE */
+
+.nonveg-badge-label {
+  background: #b71c1c;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: bold;
+  width: fit-content;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* OFF BADGE */
+
+.nonveg-off-badge {
+  background: #ff2d55;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: bold;
+  width: fit-content;
+  box-shadow: 0 4px 10px rgba(255, 45, 85, 0.4);
+}
+
+/* ================= NAME ================= */
+
+.nonveg-food-name {
+  margin-top: 15px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #222;
+}
+
+/* ================= DESCRIPTION ================= */
+
+.nonveg-food-description {
+  font-size: 13px;
+  color: #666;
+  min-height: 42px;
+  line-height: 1.6;
+  margin: 8px 0;
+}
+
+/* ================= PRICE ================= */
+
+.nonveg-food-price {
+  font-size: 20px;
+  font-weight: bold;
+  color: #b71c1c;
+  margin: 10px 0;
+}
+
+/* ================= BUTTON ================= */
+
+.nonveg-cart-button {
+  background: #ff2d55;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
+  display: block;
+  margin: 12px auto 0;
+}
+
+.nonveg-cart-button:hover {
+  transform: scale(1.05);
+  background: #e6003d;
+}
+
+/* ================= PAGINATION ================= */
+
+.nonveg-pagination-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.nonveg-pagination-btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  background: #e0e0e0;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.nonveg-pagination-btn:hover:not(:disabled) {
+  background: #ff2d55;
+  color: white;
+}
+
+.active-nonveg-page {
+  background: #ff2d55;
+  color: white;
+}
+
+.nonveg-pagination-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1024px) {
+  .nonveg-food-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .nonveg-main-section {
+    margin-left: 0;
+    width: 100%;
+    padding: 15px;
+  }
+
+  .nonveg-food-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nonveg-heading-title {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nonveg-food-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .nonveg-food-card {
+    padding: 12px;
+  }
+
+  .nonveg-food-image {
+    height: 220px;
+  }
+}
