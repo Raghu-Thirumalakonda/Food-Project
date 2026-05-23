@@ -25,7 +25,7 @@ import Login from "./Login";
 import Register from "./Register";
 import Nonveg from "./Nonveg";
 
-import juices from "./juices";
+import Juices from "./juices";
 
 function App() {
   // ✅ FIXED ONLY THIS LINE (IMPORTANT)
@@ -142,7 +142,7 @@ function App() {
 
             <Route path="/veg" element={<Veg />} />
             <Route path="/nonveg" element={<Nonveg />} />
-            <Route path="/juices" element={<juices />} />
+            <Route path="/juices" element={<Juices />} />
             <Route path="/desserts" element={<Desserts />} />
 
             <Route path="/cart" element={<Cart />} />

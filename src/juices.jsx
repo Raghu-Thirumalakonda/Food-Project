@@ -5,7 +5,7 @@ import { addToCart } from "./features/cartSlice";
 import Sidebar from "./Sidebar";
 import { toast } from "react-toastify";
 
-function juices() {
+function Juices() {
   const dispatch = useDispatch();
 
   const [juiceCurrentPage, setJuiceCurrentPage] = useState(1);
@@ -237,4 +237,4 @@ function juices() {
   );
 }
 
-export default juices;
+export default Juices;
