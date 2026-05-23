@@ -39,27 +39,22 @@ function Cart() {
 
   const navigate = useNavigate();
 
-  // ================= CART =================
-
+  // ================= CART (FIXED ONLY THIS LINE) =================
   const cartItems =
-    useSelector((state) => state.cart || []);
+    useSelector((state) => state.cart.cartItems || []);
 
   // ================= COUPON =================
-
   const [cupon, setCupon] = useState("");
 
   // ================= PAYMENT =================
-
   const [paymentMethod, setPaymentMethod] =
     useState("");
 
   // ================= EMAIL =================
-
   const [customerEmail, setCustomerEmail] =
     useState("");
 
   // ================= DISCOUNT =================
-
   const [selectedDiscount, setSelectedDiscount] =
     useState(10);
 
@@ -72,16 +67,14 @@ function Cart() {
     (state) => state.cuponDetails
   );
 
-  // ================= TOTAL PRICE =================
-
-  const totalPrice = cartItems.reduce(
+  // ================= TOTAL PRICE (SAFE FIX) =================
+  const totalPrice = (cartItems || []).reduce(
     (total, item) =>
       total + item.price * item.quantity,
     0
   );
 
   // ================= NORMAL DISCOUNT =================
-
   const normalDiscount =
     (totalPrice * selectedDiscount) / 100;
 
@@ -89,7 +82,6 @@ function Cart() {
     totalPrice - normalDiscount;
 
   // ================= COUPON DISCOUNT =================
-
   const couponDiscountAmount =
     (afterDiscount * discount) / 100;
 
@@ -97,84 +89,59 @@ function Cart() {
     afterDiscount - couponDiscountAmount;
 
   // ================= TAX =================
-
   const tax = finalAmountAfterCoupon * 0.18;
 
   // ================= DELIVERY =================
-
   const deliveryFee =
     finalAmountAfterCoupon > 0 ? 40 : 0;
 
   // ================= FINAL TOTAL =================
-
   const finalTotal =
     finalAmountAfterCoupon +
     tax +
     deliveryFee;
 
   // ================= HANDLE CHECKOUT =================
-
   const handleCheckout = () => {
 
     if (!customerEmail) {
-
-      toast.error(
-        "Please Enter Email"
-      );
-
+      toast.error("Please Enter Email");
       return;
     }
 
     const templateParams = {
-
       order_id:
         "ORDER-" +
-        Math.floor(
-          Math.random() * 100000
-        ),
+        Math.floor(Math.random() * 100000),
 
-      orders: cartItems.map(
-        (item) => ({
-          name: item.name,
-
-          price: (
-            item.price *
-            item.quantity
-          ).toFixed(2),
-
-          units: item.quantity,
-        })
-      ),
+      orders: cartItems.map((item) => ({
+        name: item.name,
+        price: (
+          item.price *
+          item.quantity
+        ).toFixed(2),
+        units: item.quantity,
+      })),
 
       cost: {
-
-        shipping:50,
-
+        shipping: 50,
         tax: tax.toFixed(2),
-
-        total:
-          finalTotal.toFixed(2),
+        total: finalTotal.toFixed(2),
       },
 
       email: customerEmail,
     };
 
     emailjs.send(
-
       "service_w1dbaxs",
-
       "template_cyqrsjb",
-
       templateParams,
-
       "SU4bbBhAdBdECqcAD"
     )
 
     .then(() => {
 
-      toast.success(
-        "Order Email Sent ✅"
-      );
+      toast.success("Order Email Sent ✅");
 
       confetti({
         particleCount: 300,
@@ -193,9 +160,7 @@ function Cart() {
 
       console.log(error);
 
-      toast.error(
-        "Email Failed ❌"
-      );
+      toast.error("Email Failed ❌");
 
     });
 
@@ -233,11 +198,9 @@ function Cart() {
 
                 cancelButtonColor: "#3085d6",
 
-                confirmButtonText:
-                  "Yes, Remove",
+                confirmButtonText: "Yes, Remove",
 
-                cancelButtonText:
-                  "Cancel",
+                cancelButtonText: "Cancel",
 
               }).then((result) => {
 
@@ -298,30 +261,20 @@ function Cart() {
 
                   <button
                     type="button"
-                    onClick={() => {
-
-                      dispatch(
-                        decrementQty(item.id)
-                      );
-
-                    }}
+                    onClick={() =>
+                      dispatch(decrementQty(item.id))
+                    }
                   >
                     -
                   </button>
 
-                  <span>
-                    {item.quantity}
-                  </span>
+                  <span>{item.quantity}</span>
 
                   <button
                     type="button"
-                    onClick={() => {
-
-                      dispatch(
-                        incrementQty(item.id)
-                      );
-
-                    }}
+                    onClick={() =>
+                      dispatch(incrementQty(item.id))
+                    }
                   >
                     +
                   </button>
@@ -334,13 +287,9 @@ function Cart() {
                 type="button"
                 className="remove-btn"
 
-                onClick={() => {
-
-                  dispatch(
-                    removeCart(item.id)
-                  );
-
-                }}
+                onClick={() =>
+                  dispatch(removeCart(item.id))
+                }
               >
                 Remove
               </button>
@@ -365,42 +314,24 @@ function Cart() {
 
           <button
             type="button"
-            className={
-              selectedDiscount === 10
-                ? "active"
-                : ""
-            }
-            onClick={() =>
-              setSelectedDiscount(10)
-            }
+            className={selectedDiscount === 10 ? "active" : ""}
+            onClick={() => setSelectedDiscount(10)}
           >
             10%
           </button>
 
           <button
             type="button"
-            className={
-              selectedDiscount === 20
-                ? "active"
-                : ""
-            }
-            onClick={() =>
-              setSelectedDiscount(20)
-            }
+            className={selectedDiscount === 20 ? "active" : ""}
+            onClick={() => setSelectedDiscount(20)}
           >
             20%
           </button>
 
           <button
             type="button"
-            className={
-              selectedDiscount === 30
-                ? "active"
-                : ""
-            }
-            onClick={() =>
-              setSelectedDiscount(30)
-            }
+            className={selectedDiscount === 30 ? "active" : ""}
+            onClick={() => setSelectedDiscount(30)}
           >
             30%
           </button>
@@ -413,31 +344,17 @@ function Cart() {
 
           <input
             type="text"
-
             placeholder="Enter Coupon"
-
             value={cupon}
-
-            onChange={(e) =>
-              setCupon(e.target.value)
-            }
-
+            onChange={(e) => setCupon(e.target.value)}
             className="coupon-input"
           />
 
           <button
             type="button"
             className="apply-btn"
-
             disabled={applied}
-
-            onClick={() => {
-
-              dispatch(
-                applyCupon(cupon)
-              );
-
-            }}
+            onClick={() => dispatch(applyCupon(cupon))}
           >
             Apply Coupon
           </button>
@@ -447,18 +364,13 @@ function Cart() {
         {/* ================= MESSAGE ================= */}
 
         {message && (
-
           <h3
             style={{
-              color:
-                applied
-                  ? "green"
-                  : "red",
+              color: applied ? "green" : "red",
             }}
           >
             {message}
           </h3>
-
         )}
 
         {/* ================= SUMMARY ================= */}
@@ -466,236 +378,126 @@ function Cart() {
         <div className="summary-box">
 
           <div className="row">
-
             <span>Total Price</span>
-
-            <span>
-              ₹{totalPrice.toFixed(2)}
-            </span>
-
+            <span>₹{totalPrice.toFixed(2)}</span>
           </div>
 
           <div className="row discount">
-
-            <span>
-              Discount ({selectedDiscount}%)
-            </span>
-
-            <span>
-              - ₹{normalDiscount.toFixed(2)}
-            </span>
-
+            <span>Discount ({selectedDiscount}%)</span>
+            <span>- ₹{normalDiscount.toFixed(2)}</span>
           </div>
 
           <div className="row">
-
             <span>After Discount</span>
-
-            <span>
-              ₹{afterDiscount.toFixed(2)}
-            </span>
-
+            <span>₹{afterDiscount.toFixed(2)}</span>
           </div>
 
           {applied && (
-
             <>
-
               <div className="row">
-
                 <span>Coupon</span>
-
                 <span>{code}</span>
-
               </div>
 
               <div className="row discount">
-
-                <span>
-                  Coupon Discount ({discount}%)
-                </span>
-
-                <span>
-                  - ₹
-                  {couponDiscountAmount.toFixed(2)}
-                </span>
-
+                <span>Coupon Discount ({discount}%)</span>
+                <span>- ₹{couponDiscountAmount.toFixed(2)}</span>
               </div>
-
             </>
-
           )}
 
           <div className="row">
-
             <span>Tax (18%)</span>
-
-            <span>
-              ₹{tax.toFixed(2)}
-            </span>
-
+            <span>₹{tax.toFixed(2)}</span>
           </div>
 
           <div className="row">
-
             <span>Delivery Fee</span>
-
-            <span>
-              ₹{deliveryFee}
-            </span>
-
+            <span>₹{deliveryFee}</span>
           </div>
 
           <hr />
 
           <div className="row total">
-
             <span>Payable Amount</span>
-
-            <span>
-              ₹{finalTotal.toFixed(2)}
-            </span>
-
+            <span>₹{finalTotal.toFixed(2)}</span>
           </div>
 
-          {/* ================= EMAIL ================= */}
-
+          {/* EMAIL */}
           <div className="email-box">
-
-            <label>
-              📧 Enter Email
-            </label>
+            <label>📧 Enter Email</label>
 
             <input
               type="email"
-
               value={customerEmail}
-
               onChange={(e) =>
-                setCustomerEmail(
-                  e.target.value
-                )
+                setCustomerEmail(e.target.value)
               }
-
               placeholder="you@gmail.com"
-
               className="email-input"
             />
-
           </div>
 
-          {/* ================= PAYMENT METHOD ================= */}
-
+          {/* PAYMENT */}
           <div className="payment-method">
-
             <h3>Select Payment Method 💳</h3>
 
             <div className="payment-buttons">
-
-              <button
-                type="button"
-                onClick={() =>
-                  setPaymentMethod("qr")
-                }
-              >
+              <button onClick={() => setPaymentMethod("qr")}>
                 📱 QR Code
               </button>
 
-              <button
-                type="button"
-                onClick={() =>
-                  setPaymentMethod("card")
-                }
-              >
+              <button onClick={() => setPaymentMethod("card")}>
                 💳 Card
               </button>
-
             </div>
-
           </div>
 
-          {/* ================= QR SECTION ================= */}
-
+          {/* QR */}
           {paymentMethod === "qr" && (
-
             <div className="qr-section">
-
               <h3>
-                Scan QR To Pay ₹
-                {finalTotal.toFixed(2)}
+                Scan QR To Pay ₹{finalTotal.toFixed(2)}
               </h3>
 
-              <div className="qr-box">
+              <QRCode
+                value={`upi://pay?pa=8374075410-2@ybl&pn=RaghuStore&am=${finalTotal.toFixed(
+                  2
+                )}&cu=INR`}
+                size={220}
+              />
 
-                <QRCode
-                  value={`upi://pay?pa=8374075410-2@ybl&pn=RaghuStore&am=${finalTotal.toFixed(
-                    2
-                  )}&cu=INR`}
-                  size={220}
-                  bgColor="#FFFFFF"
-                  fgColor="#000000"
-                />
-
-              </div>
-
-              <p>
-                UPI ID:
-                8374075410-2@ybl
-              </p>
-
+              <p>UPI ID: 8374075410-2@ybl</p>
             </div>
-
           )}
 
-          {/* ================= CARD SECTION ================= */}
-
+          {/* CARD */}
           {paymentMethod === "card" && (
-
             <div className="card-payment">
-
-              <h3>
-                💳 Card Payment Coming Soon
-              </h3>
-
+              <h3>💳 Card Payment Coming Soon</h3>
             </div>
-
           )}
 
-          {/* ================= REMOVE COUPON ================= */}
-
+          {/* REMOVE COUPON */}
           {applied && (
-
             <button
-              type="button"
               className="remove-coupon-btn"
-
-              onClick={() => {
-
-                dispatch(resetCoupon());
-
-              }}
+              onClick={() => dispatch(resetCoupon())}
             >
               Remove Coupon
             </button>
-
           )}
 
-          {/* ================= PLACE ORDER ================= */}
-
+          {/* CHECKOUT */}
           <button
-            type="button"
-
             className="checkout-btn"
-
             onClick={handleCheckout}
           >
             Checkout & Send Email 📧
           </button>
 
         </div>
-
       </div>
-
     </div>
   );
 }

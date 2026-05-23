@@ -8,11 +8,15 @@ function Orders() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const cartItems = useSelector((state) => state.cart || []);
+  // ✅ FIXED: correct Redux path
+  const cartItems = useSelector(
+    (state) => state.cart.cartItems || []
+  );
 
   const [isOrdered, setIsOrdered] = useState(false);
 
-  const total = cartItems.reduce(
+  // ✅ SAFE REDUCE
+  const total = (cartItems || []).reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
   );
@@ -66,7 +70,7 @@ function Orders() {
           )}
         </>
       ) : (
-        /* ================= AFTER ORDER SUCCESS ================= */
+        /* ================= AFTER ORDER ================= */
         <div className="success-box">
 
           <h1>🎉 Order Placed Successfully!</h1>
@@ -74,7 +78,9 @@ function Orders() {
           <p>Your food is being prepared 🍽️</p>
 
           <div className="order-info">
-            <h3>Order ID: #{Math.floor(Math.random() * 1000000)}</h3>
+            <h3>
+              Order ID: #{Math.floor(Math.random() * 1000000)}
+            </h3>
             <p>Status: 🟡 Preparing</p>
           </div>
 

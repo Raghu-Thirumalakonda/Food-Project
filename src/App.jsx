@@ -3,6 +3,7 @@ import "./App.css";
 
 import { FaUtensils } from "react-icons/fa";
 import { useSelector } from "react-redux";
+import { useState, useEffect } from "react";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -25,9 +26,13 @@ import Login from "./Login";
 import Register from "./Register";
 
 function App() {
-  const cartItems = useSelector((state) => state?.cart?.items ?? []);
 
-  const totalQty = cartItems.reduce(
+  // ✅ FIXED ONLY THIS LINE (IMPORTANT)
+  const cartItems = useSelector(
+    (state) => state?.cart?.cartItems ?? []
+  );
+
+  const totalQty = (cartItems || []).reduce(
     (t, item) => t + (item?.quantity ?? 0),
     0
   );
@@ -38,6 +43,42 @@ function App() {
     localStorage.removeItem("loggedInUser");
     window.location.reload();
   };
+
+  /* ================= LOCATION ADDED ================= */
+  const [location, setLocation] = useState("India");
+
+  useEffect(() => {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        async (position) => {
+          const { latitude, longitude } = position.coords;
+
+          try {
+            const res = await fetch(
+              `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`
+            );
+
+            const data = await res.json();
+
+            const city =
+              data.address.city ||
+              data.address.town ||
+              data.address.village ||
+              data.address.state;
+
+            setLocation(city || "India");
+          } catch (error) {
+            setLocation("India");
+          }
+        },
+        (error) => {
+          setLocation("India");
+        }
+      );
+    }
+  }, []);
+
+  /* ================= LOCATION END ================= */
 
   return (
     <BrowserRouter>
@@ -65,7 +106,7 @@ function App() {
 
             <div className="right">
 
-              <div className="location">📍 India</div>
+              <div className="location">📍 {location}</div>
 
               <Link to="/cart" className="cart">
                 🛒 Cart

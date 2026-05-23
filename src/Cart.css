@@ -6,8 +6,8 @@
   display: flex;
   gap: 30px;
   padding: 30px;
-  background: #f5f7fb;
-  font-family: Arial, sans-serif;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #f5f7fb, #e8ecf6);
 }
 
 /* ================= LEFT SIDE ================= */
@@ -26,55 +26,58 @@
 }
 
 .cart-header h1 {
-  font-size: 2rem;
-  color: #222;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #111827;
 }
 
 /* ================= CLEAR BUTTON ================= */
 
 .clear-btn {
   border: none;
-  outline: none;
   padding: 12px 22px;
-  background: #ff3b30;
+  background: linear-gradient(135deg, #ff3b30, #ff5e57);
   color: white;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 10px;
+  font-weight: 700;
+  border-radius: 12px;
   cursor: pointer;
   transition: 0.3s;
+  box-shadow: 0 8px 20px rgba(255, 59, 48, 0.3);
 }
 
 .clear-btn:hover {
   transform: scale(1.05);
 }
 
-/* ================= EMPTY TEXT ================= */
+/* ================= EMPTY ================= */
 
 .empty {
   text-align: center;
-  margin-top: 100px;
-  color: gray;
-  font-size: 1.5rem;
+  margin-top: 120px;
+  font-size: 1.6rem;
+  color: #6b7280;
 }
 
 /* ================= CART CARD ================= */
 
 .cart-card {
   background: white;
-  border-radius: 18px;
+  border-radius: 20px;
   padding: 18px;
   margin-bottom: 20px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
   transition: 0.3s;
 }
 
 .cart-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.12);
 }
 
 /* ================= IMAGE ================= */
@@ -83,54 +86,89 @@
   width: 120px;
   height: 120px;
   object-fit: cover;
-  border-radius: 15px;
+  border-radius: 18px;
 }
 
 /* ================= DETAILS ================= */
 
-.cart-details {
-  flex: 1;
-}
+/* ================= PRODUCT NAME (CLASSIC PREMIUM LOOK) ================= */
 
 .cart-details h2 {
-  margin-bottom: 10px;
-  color: #222;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #0f172a; /* deep premium black */
+  letter-spacing: 0.5px;
+
+  margin-bottom: 6px;
+
+  /* subtle elegance */
+  font-family: "Segoe UI", sans-serif;
+  text-transform: capitalize;
+
+  /* soft glow effect */
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }
+
+/* ================= PRICE (MODERN FOOD STYLE LOOK) ================= */
 
 .price {
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: #ff5722;
-  margin-bottom: 15px;
+  font-size: 1.2rem;
+  font-weight: 900;
+
+  /* gradient text effect */
+  background: linear-gradient(135deg, #f97316, #ef4444);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  margin: 8px 0;
+
+  letter-spacing: 0.3px;
+
+  font-family: "Segoe UI", sans-serif;
+
+  /* subtle highlight */
+  text-shadow: 0 2px 10px rgba(249, 115, 22, 0.15);
 }
 
-/* ================= QUANTITY ================= */
+/* ================= QUANTITY (➕➖ IMPROVED) ================= */
 
 .qty-box {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 14px;
 }
 
+/* ➕ ➖ BUTTONS */
 .qty-box button {
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   border: none;
-  border-radius: 50%;
-  background: #111827;
-  color: white;
+  border-radius: 14px;
+
   font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+
   cursor: pointer;
-  transition: 0.3s;
+
+  background: linear-gradient(135deg, #6366f1, #3b82f6);
+  box-shadow: 0 6px 15px rgba(59,130,246,0.4);
+
+  transition: 0.25s;
 }
 
 .qty-box button:hover {
-  transform: scale(1.1);
+  transform: scale(1.15) rotate(5deg);
+  background: linear-gradient(135deg, #22c55e, #10b981);
 }
 
+/* quantity number */
 .qty-box span {
   font-size: 1.2rem;
-  font-weight: bold;
+  font-weight: 800;
+  color: #111827;
+  min-width: 25px;
+  text-align: center;
 }
 
 /* ================= REMOVE BUTTON ================= */
@@ -138,13 +176,13 @@
 .remove-btn {
   border: none;
   padding: 12px 18px;
-  background: #ff2d55;
+  background: linear-gradient(135deg, #ff2d55, #ff6b81);
   color: white;
-  border-radius: 10px;
-  font-size: 1rem;
-  font-weight: 600;
+  border-radius: 12px;
+  font-weight: 700;
   cursor: pointer;
   transition: 0.3s;
+  box-shadow: 0 8px 18px rgba(255, 45, 85, 0.25);
 }
 
 .remove-btn:hover {
@@ -155,18 +193,65 @@
 
 .cart-right {
   flex: 1;
-  background: white;
-  border-radius: 20px;
+  background: rgb(222, 224, 224);
+  border-radius: 25px;
   padding: 25px;
   height: fit-content;
   position: sticky;
   top: 20px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+
+  /* ✅ ADD THIS */
+  color: #111827; /* black/dark text */
 }
 
-.cart-right h2 {
-  margin-bottom: 20px;
+
+/* ================= EMAIL (PREMIUM GLASS UI) ================= */
+
+.email-box {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  padding: 18px;
+  border-radius: 18px;
+
+  background: linear-gradient(145deg, #b3afb2, #4381bf);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+}
+
+.email-box label {
+  font-size: 0.95rem;
+  font-weight: 900;
   color: #111827;
+}
+
+.email-input {
+  width: 100%;
+  padding: 14px 16px;
+
+  border-radius: 14px;
+  border: 2px solid transparent;
+
+  font-size: 1rem;
+  font-weight: 600;
+
+  outline: none;
+
+  background: linear-gradient(#d98e8e, #ffffff) padding-box,
+              linear-gradient(135deg, #6366f1, #22c55e) border-box;
+
+  box-shadow: inset 0 0 0 1px #e5e7eb;
+
+  transition: 0.3s;
+}
+
+.email-input:focus {
+  transform: scale(1.03);
+  box-shadow: 0 12px 25px rgba(99, 102, 241, 0.25);
 }
 
 /* ================= DISCOUNT BUTTONS ================= */
@@ -174,61 +259,68 @@
 .discount-buttons {
   display: flex;
   gap: 10px;
-  margin-bottom: 20px;
+  margin: 20px 0;
 }
 
 .discount-buttons button {
   flex: 1;
-  padding: 10px;
+  padding: 12px;
+  border-radius: 14px;
   border: none;
-  border-radius: 10px;
-  background: #e5e7eb;
+
+  font-weight: 800;
   cursor: pointer;
-  font-weight: bold;
+
+  background: linear-gradient(145deg, #f1f5f9, #e2e8f0);
+  color: #334155;
+
   transition: 0.3s;
 }
 
 .discount-buttons button:hover {
-  transform: scale(1.05);
-}
-
-.discount-buttons .active {
-  background: #111827;
+  transform: translateY(-3px);
+  background: linear-gradient(135deg, #6366f1, #3b82f6);
   color: white;
 }
 
-/* ================= COUPON BOX ================= */
+.discount-buttons .active {
+  background: linear-gradient(135deg, #10b981, #22c55e);
+  color: white;
+}
+
+/* ================= COUPON ================= */
 
 .coupon-box {
   display: flex;
   gap: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .coupon-input {
   flex: 1;
-  padding: 12px;
-  border: 2px solid #ddd;
-  border-radius: 10px;
-  font-size: 1rem;
+  padding: 14px;
+  border-radius: 14px;
+  border: 2px solid #e5e7eb;
   outline: none;
 }
 
 .coupon-input:focus {
-  border-color: #2563eb;
+  border-color: #6366f1;
+  box-shadow: 0 0 12px rgba(99,102,241,0.3);
 }
 
 /* ================= APPLY BUTTON ================= */
 
 .apply-btn {
-  border: none;
   padding: 12px 18px;
-  background: #2563eb;
+  border: none;
+  border-radius: 12px;
+
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
   color: white;
-  border-radius: 10px;
-  font-size: 1rem;
-  font-weight: 600;
+  font-weight: 800;
   cursor: pointer;
+
   transition: 0.3s;
 }
 
@@ -236,143 +328,61 @@
   transform: scale(1.05);
 }
 
-/* ================= REMOVE COUPON ================= */
-
-.remove-coupon-btn {
-  width: 100%;
-  border: none;
-  padding: 12px;
-  margin-top: 15px;
-  background: #ff2d55;
-  color: white;
-  border-radius: 10px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.remove-coupon-btn:hover {
-  transform: scale(1.03);
-}
-
-/* ================= SUMMARY ================= */
-
-.summary-box {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-/* ================= ROW ================= */
-
-.row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 1rem;
-  color: #333;
-}
-
-.discount span:last-child {
-  color: green;
-  font-weight: bold;
-}
-
-.total {
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: #111827;
-}
-
-/* ================= PAYMENT METHOD ================= */
-
-.payment-method {
-  margin-top: 25px;
-}
-
-.payment-method h3 {
-  margin-bottom: 15px;
-  color: #111827;
-}
+/* ================= PAYMENT ================= */
 
 .payment-buttons {
   display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .payment-buttons button {
   flex: 1;
-  padding: 12px;
+  padding: 14px;
+  border-radius: 14px;
   border: none;
-  border-radius: 12px;
+  font-weight: 800;
   cursor: pointer;
-  font-size: 1rem;
-  font-weight: bold;
-  background: #e5e7eb;
+
+  background: linear-gradient(145deg, #f3f4f6, #e5e7eb);
   transition: 0.3s;
 }
 
 .payment-buttons button:hover {
-  transform: scale(1.05);
-  background: #d1d5db;
+  transform: translateY(-3px);
+  background: linear-gradient(135deg, #f97316, #ef4444);
+  color: white;
 }
 
-/* ================= QR SECTION ================= */
+/* ================= QR ================= */
 
 .qr-section {
-  margin-top: 25px;
   text-align: center;
-  animation: fadeIn 0.4s ease;
-}
-
-.qr-section h3 {
-  margin-bottom: 20px;
-  color: #111827;
+  margin-top: 25px;
 }
 
 .qr-box {
-  background: white;
+  margin-top: 10px;
   padding: 18px;
   border-radius: 18px;
-  display: inline-block;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  background: white;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
-.qr-section p {
-  margin-top: 15px;
-  font-size: 17px;
-  font-weight: 600;
-  color: #374151;
-}
-
-/* ================= CARD PAYMENT ================= */
-
-.card-payment {
-  margin-top: 25px;
-  text-align: center;
-  padding: 20px;
-  border-radius: 15px;
-  background: #f3f4f6;
-}
-
-.card-payment h3 {
-  color: #111827;
-}
-
-/* ================= CHECKOUT BUTTON ================= */
+/* ================= CHECKOUT ================= */
 
 .checkout-btn {
   width: 100%;
-  border: none;
   padding: 14px;
-  margin-top: 10px;
-  background: #10b981;
+  margin-top: 15px;
+
+  border: none;
+  border-radius: 14px;
+
+  background: linear-gradient(135deg, #10b981, #22c55e);
   color: white;
-  border-radius: 12px;
   font-size: 1.1rem;
-  font-weight: bold;
+  font-weight: 800;
+
   cursor: pointer;
   transition: 0.3s;
 }
@@ -381,33 +391,34 @@
   transform: scale(1.03);
 }
 
-/* ================= ANIMATION ================= */
+/* ================= REMOVE COUPON ================= */
 
-@keyframes fadeIn {
+.remove-coupon-btn {
+  width: 100%;
+  margin-top: 15px;
+  padding: 12px;
 
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
+  border: none;
+  border-radius: 12px;
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  background: linear-gradient(135deg, #ff2d55, #ff6b81);
+  color: white;
+  font-weight: 800;
 
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.remove-coupon-btn:hover {
+  transform: scale(1.03);
 }
 
 /* ================= RESPONSIVE ================= */
 
 @media (max-width: 900px) {
-
   .cart-container {
     flex-direction: column;
     padding: 15px;
-  }
-
-  .cart-right {
-    position: static;
   }
 
   .cart-card {
@@ -415,13 +426,116 @@
     text-align: center;
   }
 
-  .cart-card img {
-    width: 100px;
-    height: 100px;
-  }
-
   .payment-buttons {
     flex-direction: column;
   }
+}
 
+/* ================= ORDER SUMMARY PREMIUM CARD ================= */
+
+.summary-box {
+  margin-top: 20px;
+  padding: 18px;
+  border-radius: 18px;
+
+  background: linear-gradient(145deg, #ffffff, #f1f5f9);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  border: 1px solid #e5e7eb;
+}
+
+/* ================= EACH ROW ================= */
+
+.summary-box .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 10px 12px;
+  border-radius: 12px;
+
+  background: #f8fafc;
+  transition: 0.3s;
+}
+
+.summary-box .row:hover {
+  transform: translateX(4px);
+  background: #eef2ff;
+}
+
+/* ================= LABEL (LEFT SIDE TEXT) ================= */
+
+.summary-box .row span:first-child {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #334155;
+}
+
+/* ================= VALUE (RIGHT SIDE TEXT) ================= */
+
+.summary-box .row span:last-child {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+/* ================= DISCOUNT ROW SPECIAL ================= */
+
+.summary-box .discount span:last-child {
+  color: #ef4444;
+  font-weight: 900;
+}
+
+/* ================= AFTER DISCOUNT ================= */
+
+.summary-box .row:nth-child(3) span:last-child {
+  color: #16a34a;
+  font-weight: 900;
+}
+
+/* ================= TAX ================= */
+
+.summary-box .row:nth-child(4) span:last-child {
+  color: #f97316;
+  font-weight: 900;
+}
+
+/* ================= DELIVERY ================= */
+
+.summary-box .row:nth-child(5) span:last-child {
+  color: #6366f1;
+  font-weight: 900;
+}
+
+/* ================= FINAL TOTAL (HIGHLIGHT BOX) ================= */
+
+.summary-box .total {
+  background: linear-gradient(135deg, #10b981, #22c55e);
+  color: white;
+  padding: 14px 12px;
+  border-radius: 14px;
+
+  box-shadow: 0 10px 25px rgba(16,185,129,0.25);
+}
+
+.summary-box .total span {
+  color: white !important;
+  font-size: 1.1rem;
+  font-weight: 900;
+}
+
+/* ================= FINAL AMOUNT ANIMATION ================= */
+
+.summary-box .total span:last-child {
+  animation: pulseAmount 1.5s infinite;
+}
+
+@keyframes pulseAmount {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
 }

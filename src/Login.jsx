@@ -49,7 +49,7 @@ function Login() {
     <div className="login-container">
       <div className="login-box">
 
-        <h1>Welcome Back 👋</h1>
+        <h1>Welcome  Back 👋</h1>
         <p>Please login to continue</p>
 
         <form onSubmit={handleSubmit(Loginlogics)}>
