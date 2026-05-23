@@ -16,25 +16,24 @@ import Restaurants from "./Restaurants";
 import Contact from "./Contact";
 
 import Veg from "./Veg";
-import NonVeg from "./NonVeg";
-import Juices from "./Juices";
+
 import Desserts from "./Desserts";
 
 import Cart from "./Cart";
 import Orders from "./Orders";
 import Login from "./Login";
 import Register from "./Register";
+import Nonveg from "./Nonveg";
+
+import juices from "./juices";
 
 function App() {
-
   // ✅ FIXED ONLY THIS LINE (IMPORTANT)
-  const cartItems = useSelector(
-    (state) => state?.cart?.cartItems ?? []
-  );
+  const cartItems = useSelector((state) => state?.cart?.cartItems ?? []);
 
   const totalQty = (cartItems || []).reduce(
     (t, item) => t + (item?.quantity ?? 0),
-    0
+    0,
   );
 
   let user = JSON.parse(localStorage.getItem("loggedInUser"));
@@ -55,7 +54,7 @@ function App() {
 
           try {
             const res = await fetch(
-              `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`
+              `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`,
             );
 
             const data = await res.json();
@@ -73,7 +72,7 @@ function App() {
         },
         (error) => {
           setLocation("India");
-        }
+        },
       );
     }
   }, []);
@@ -85,11 +84,9 @@ function App() {
       <ToastContainer position="top-center" autoClose={2000} />
 
       <div className="app-wrapper">
-
         {/* ================= NAVBAR ================= */}
         <header className="navbar">
           <div className="navbar-container">
-
             <Link to="/" className="logo">
               <FaUtensils className="logo-icon" />
               Food Hub
@@ -105,7 +102,6 @@ function App() {
             </nav>
 
             <div className="right">
-
               <div className="location">📍 {location}</div>
 
               <Link to="/cart" className="cart">
@@ -131,7 +127,6 @@ function App() {
               <Link to="/register" className="register-btn">
                 Register
               </Link>
-
             </div>
           </div>
         </header>
@@ -146,8 +141,8 @@ function App() {
             <Route path="/contact" element={<Contact />} />
 
             <Route path="/veg" element={<Veg />} />
-            <Route path="/nonveg" element={<NonVeg />} />
-            <Route path="/juices" element={<Juices />} />
+            <Route path="/nonveg" element={<Nonveg />} />
+            <Route path="/juices" element={<juices />} />
             <Route path="/desserts" element={<Desserts />} />
 
             <Route path="/cart" element={<Cart />} />
@@ -157,7 +152,6 @@ function App() {
             <Route path="/register" element={<Register />} />
           </Routes>
         </main>
-
       </div>
     </BrowserRouter>
   );
