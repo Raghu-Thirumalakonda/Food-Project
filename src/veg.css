@@ -1,249 +1,609 @@
-/* ================= PAGE LAYOUT ================= */
+/* =========================
+   GOOGLE FONT
+========================= */
 
-.veg-page-wrapper {
-  display: flex;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #f5f7fa, #e4efe9);
-  font-family: Arial, sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+/* =========================
+   GLOBAL
+========================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Poppins",sans-serif;
 }
 
-/* ================= MAIN CONTENT ================= */
-
-.veg-main-section {
-  flex: 1;
-  padding: 30px;
-  margin-left: 250px;
-  width: calc(100% - 250px);
-  box-sizing: border-box;
-  overflow-x: hidden;
+body{
+  background:black;
+  overflow-x:hidden;
 }
 
-/* ================= TITLE ================= */
+/* =========================
+   PAGE WRAPPER
+========================= */
 
-.veg-heading-title {
-  text-align: center;
-  font-size: 32px;
-  margin-bottom: 30px;
-  color: #2e7d32;
-  font-weight: bold;
+.veg-page-wrapper{
+
+  min-height:100vh;
+
+  display:flex;
+
+  background:
+
+    linear-gradient(
+      rgba(0,0,0,0.82),
+      rgba(0,0,0,0.88)
+    ),
+
+    url("/image/bg 2 image.jpg");
+
+  background-size:cover;
+
+  background-position:center;
+
+  background-repeat:no-repeat;
+
+  background-attachment:fixed;
+
+  padding:20px;
 }
 
-/* ================= CARD GRID ================= */
+/* =========================
+   MAIN SECTION
+========================= */
 
-.veg-food-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 20px;
-  width: 100%;
-  box-sizing: border-box;
+.veg-main-section{
+
+  flex:1;
+
+  padding:20px 30px;
+
+  margin-left:240px;
+
+  width:calc(100% - 240px);
+
+  overflow:hidden;
 }
 
-/* ================= CARD ================= */
+/* =========================
+   HEADING
+========================= */
 
-.veg-food-card {
-  position: relative;
-  background: #fff;
-  border-radius: 18px;
-  padding: 15px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  transition: 0.3s ease;
-  width: 100%;
-  box-sizing: border-box;
-  overflow: hidden;
+.veg-heading-title{
+
+  text-align:center;
+
+  font-size:4rem;
+
+  font-weight:800;
+
+  margin-bottom:45px;
+
+  color:white;
+
+  text-shadow:
+    0 0 25px rgba(255,140,0,0.7);
 }
 
-.veg-food-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+.veg-heading-title span{
+
+  background:linear-gradient(
+    135deg,
+    #FF94B2,
+    #F24455,
+    #E5203A,
+    #660F24
+  );
+
+  -webkit-background-clip:text;
+
+  -webkit-text-fill-color:transparent;
 }
 
-/* ================= IMAGE ================= */
+/* =========================
+   GRID
+========================= */
 
-.veg-food-image {
-  width: 100%;
-  height: 190px;
-  object-fit: cover;
-  border-radius: 14px;
-  transition: 0.4s ease;
+.veg-food-grid{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(auto-fit,minmax(320px,1fr));
+
+  gap:35px;
+
+  width:100%;
+
+  overflow:hidden;
 }
 
-.veg-food-card:hover .veg-food-image {
-  transform: scale(1.04);
+/* =========================
+   CARD
+========================= */
+
+.veg-food-card{
+
+  position:relative;
+
+  min-width:0;
+
+  border-radius:30px;
+
+  overflow:hidden;
+
+  background:
+    rgba(255,255,255,0.07);
+
+  backdrop-filter:blur(16px);
+
+  border:
+    1px solid rgba(255,255,255,0.12);
+
+  box-shadow:
+    0 0 30px rgba(255,140,0,0.15);
+
+  transition:0.4s ease;
+
+  padding-bottom:25px;
 }
 
-/* ================= BADGES ================= */
+.veg-food-card:hover{
 
-.veg-badge-wrapper {
-  position: absolute;
-  top: 25px;
-  left: 20px;
-  right: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 10;
+  transform:
+    translateY(-12px)
+    scale(1.02);
+
+  box-shadow:
+    0 0 40px rgba(255,140,0,0.5);
 }
 
-/* VEG BADGE */
+/* =========================
+   IMAGE
+========================= */
 
-.veg-type-badge {
-  background: #16a34a;
-  color: white;
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 11px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+.veg-food-image{
+
+  width:100%;
+
+  height:250px;
+
+  object-fit:cover;
+
+  transition:0.5s ease;
 }
 
-/* OFF BADGE */
+.veg-food-card:hover
+.veg-food-image{
 
-.veg-off-badge {
-  background: #ff2d55;
-  color: white;
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 11px;
-  font-weight: bold;
-  box-shadow: 0 4px 10px rgba(255, 45, 85, 0.4);
+  transform:scale(1.08);
 }
 
-/* ================= NAME ================= */
+/* =========================
+   BADGES
+========================= */
 
-.veg-food-name {
-  margin-top: 15px;
-  margin-bottom: 8px;
-  font-size: 20px;
-  color: #222;
-  font-weight: 700;
+.veg-badge-wrapper{
+
+  position:absolute;
+
+  top:18px;
+
+  left:18px;
+
+  right:18px;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  z-index:5;
 }
 
-/* ================= DESCRIPTION ================= */
+.veg-type-badge{
 
-.veg-food-description {
-  font-size: 13px;
-  color: #666;
-  min-height: 42px;
-  line-height: 1.6;
-  margin-bottom: 10px;
+  background:
+    linear-gradient(
+      135deg,
+      #008f39,
+      #00c853
+    );
+
+  color:white;
+
+  padding:10px 18px;
+
+  border-radius:30px;
+
+  font-size:0.9rem;
+
+  font-weight:700;
+
+  box-shadow:
+    0 0 15px rgba(0,200,83,0.5);
 }
 
-/* ================= PRICE ================= */
+.veg-off-badge{
 
-.veg-food-price {
-  font-size: 20px;
-  font-weight: bold;
-  color: #1b5e20;
-  margin: 10px 0;
+  background:
+    linear-gradient(
+      135deg,
+      #ff0066,
+      #ff5e00
+    );
+
+  color:white;
+
+  padding:10px 18px;
+
+  border-radius:30px;
+
+  font-size:0.9rem;
+
+  font-weight:700;
+
+  box-shadow:
+    0 0 15px rgba(255,94,0,0.5);
 }
 
-/* ================= BUTTON ================= */
+/* =========================
+   TITLE + RATING
+========================= */
 
-.veg-cart-button {
-  background: hwb(349 18% 0%);
-  color: white;
-  border: none;
-  padding: 10px 18px;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: 0.3s ease;
-  font-weight: bold;
-  display: block;
-  margin: 12px auto 0;
+.veg-title-rating{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:12px;
+
+  padding:0 18px;
+
+  margin-top:18px;
+
+  margin-bottom:10px;
 }
 
-.veg-cart-button:hover {
-  transform: scale(1.05);
-  background: #e6003d;
+/* =========================
+   FOOD NAME
+========================= */
+
+.veg-food-name{
+
+  color:white;
+
+  font-size:1.7rem;
+
+  font-weight:700;
+
+  margin:0;
+
+  line-height:1.3;
+
+  text-align:left;
+
+  flex:1;
 }
 
-/* ================= PAGINATION ================= */
+/* =========================
+   RATING BADGE
+========================= */
 
-.veg-pagination-wrapper {
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
-  gap: 8px;
-  flex-wrap: wrap;
+.veg-rating-badge{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  min-width:82px;
+
+  height:42px;
+
+  padding:0 14px;
+
+  border-radius:50px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffb800,
+      #ff7b00
+    );
+
+  color:white;
+
+  font-size:0.95rem;
+
+  font-weight:700;
+
+  letter-spacing:0.5px;
+
+  border:
+    1px solid rgba(255,255,255,0.15);
+
+  backdrop-filter:blur(10px);
+
+  box-shadow:
+    0 0 12px rgba(255,184,0,0.5),
+    0 0 25px rgba(255,123,0,0.3);
+
+  transition:0.35s ease;
+
+  cursor:pointer;
 }
 
-/* PAGINATION BUTTON */
+/* =========================
+   RATING HOVER
+========================= */
 
-.veg-pagination-btn {
-  padding: 8px 14px;
-  border: none;
-  border-radius: 8px;
-  background: #e0e0e0;
-  cursor: pointer;
-  transition: 0.3s ease;
-  font-weight: bold;
+.veg-food-card:hover
+.veg-rating-badge{
+
+  transform:
+    scale(1.08);
+
+  box-shadow:
+    0 0 18px rgba(255,184,0,0.8),
+    0 0 35px rgba(255,123,0,0.5);
 }
 
-.veg-pagination-btn:hover:not(:disabled) {
-  background: #ff2d55;
-  color: white;
+/* =========================
+   DESCRIPTION
+========================= */
+
+.veg-food-description{
+
+  text-align:center;
+
+  color:#d9d9d9;
+
+  font-size:1rem;
+
+  line-height:1.7;
+
+  padding:0 20px;
+
+  min-height:65px;
+
+  margin-top:8px;
 }
 
-.active-veg-page {
-  background: #ff2d55;
-  color: white;
+/* =========================
+   PRICE
+========================= */
+
+.veg-food-price{
+
+  text-align:center;
+
+  color:#00e676;
+
+  font-size:2rem;
+
+  font-weight:800;
+
+  margin-top:20px;
+
+  margin-bottom:25px;
+
+  text-shadow:
+    0 0 15px rgba(0,230,118,0.5);
 }
 
-.veg-pagination-btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+/* =========================
+   BUTTON
+========================= */
+
+.veg-cart-button{
+
+  width:85%;
+
+  display:block;
+
+  margin:auto;
+
+  padding:16px;
+
+  border:none;
+
+  border-radius:18px;
+
+  font-size:1.1rem;
+
+  font-weight:700;
+
+  cursor:pointer;
+
+  color:white;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff8c00,
+      #ff5e00
+    );
+
+  transition:0.4s ease;
+
+  box-shadow:
+    0 0 25px rgba(255,140,0,0.3);
 }
 
-/* ================= TABLET ================= */
+.veg-cart-button:hover{
 
-@media (max-width: 1024px) {
+  transform:scale(1.05);
 
-  .veg-food-grid {
-    grid-template-columns: repeat(3, 1fr);
+  box-shadow:
+    0 0 35px rgba(255,140,0,0.7);
+}
+
+/* =========================
+   PAGINATION
+========================= */
+
+.veg-pagination-wrapper{
+
+  margin-top:50px;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  flex-wrap:wrap;
+
+  gap:15px;
+}
+
+.veg-pagination-btn{
+
+  width:55px;
+
+  height:55px;
+
+  border:none;
+
+  border-radius:16px;
+
+  background:
+    rgba(255,255,255,0.08);
+
+  color:white;
+
+  font-size:1rem;
+
+  font-weight:700;
+
+  cursor:pointer;
+
+  transition:0.3s ease;
+
+  backdrop-filter:blur(10px);
+
+  border:
+    1px solid rgba(255,255,255,0.1);
+}
+
+.veg-pagination-btn:hover{
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff8c00,
+      #ff5e00
+    );
+
+  transform:translateY(-5px);
+
+  box-shadow:
+    0 0 20px rgba(255,140,0,0.5);
+}
+
+.active-veg-page{
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff8c00,
+      #ff5e00
+    );
+
+  box-shadow:
+    0 0 20px rgba(255,140,0,0.6);
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media(max-width:1200px){
+
+  .veg-food-grid{
+
+    grid-template-columns:
+      repeat(auto-fit,minmax(280px,1fr));
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:992px){
+
+  .veg-page-wrapper{
+
+    flex-direction:column;
+
+    background-attachment:scroll;
   }
 
+  .veg-main-section{
+
+    margin-left:0;
+
+    width:100%;
+
+    padding:20px 10px;
+  }
+
+  .veg-food-grid{
+
+    grid-template-columns:
+      repeat(auto-fit,minmax(260px,1fr));
+  }
 }
 
-/* ================= MOBILE ================= */
+/* =========================
+   SMALL MOBILE
+========================= */
 
-@media (max-width: 768px) {
+@media(max-width:600px){
 
-  .veg-main-section {
-    margin-left: 0;
-    width: 100%;
-    padding: 15px;
+  .veg-heading-title{
+
+    font-size:2.5rem;
   }
 
-  .veg-food-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .veg-food-grid{
+
+    grid-template-columns:1fr;
   }
 
-  .veg-heading-title {
-    font-size: 26px;
+  .veg-food-image{
+
+    height:220px;
   }
 
-  .veg-food-image {
-    height: 170px;
+  .veg-food-name{
+
+    font-size:1.3rem;
   }
 
-}
+  .veg-food-price{
 
-/* ================= SMALL MOBILE ================= */
-
-@media (max-width: 480px) {
-
-  .veg-food-grid {
-    grid-template-columns: repeat(1, 1fr);
+    font-size:1.6rem;
   }
 
-  .veg-food-card {
-    padding: 12px;
+  .veg-rating-badge{
+
+    min-width:72px;
+
+    height:38px;
+
+    font-size:0.8rem;
   }
 
-  .veg-food-image {
-    height: 220px;
-  }
+  .veg-cart-button{
 
+    width:90%;
+  }
 }

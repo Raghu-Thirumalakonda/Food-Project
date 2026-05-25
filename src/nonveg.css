@@ -1,228 +1,610 @@
-/* ================= PAGE LAYOUT ================= */
+/* =========================
+   GOOGLE FONT
+========================= */
 
-.nonveg-page-wrapper {
-  display: flex;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #fff5f5, #ffecec);
-  font-family: Arial, sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+/* =========================
+   GLOBAL
+========================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Poppins",sans-serif;
 }
 
-/* ================= MAIN CONTENT ================= */
+body{
 
-.nonveg-main-section {
-  flex: 1;
-  padding: 30px;
-  margin-left: 250px;
-  width: calc(100% - 250px);
-  box-sizing: border-box;
-  overflow-x: hidden;
+  background:black;
+  overflow-x:hidden;
 }
 
-/* ================= TITLE ================= */
+/* =========================
+   PAGE WRAPPER
+========================= */
 
-.nonveg-heading-title {
-  text-align: center;
-  font-size: 32px;
-  margin-bottom: 30px;
-  color: #c62828;
-  font-weight: bold;
+.nonveg-page-wrapper{
+
+  min-height:100vh;
+
+  display:flex;
+
+  background:
+
+    linear-gradient(
+      rgba(0,0,0,0.82),
+      rgba(0,0,0,0.88)
+    ),
+
+    url("/image/bg 2 image.jpg");
+
+  background-size:cover;
+
+  background-position:center;
+
+  background-repeat:no-repeat;
+
+  background-attachment:fixed;
+
+  padding:20px;
 }
 
-/* ================= GRID ================= */
+/* =========================
+   MAIN SECTION
+========================= */
 
-.nonveg-food-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 20px;
+.nonveg-main-section{
+
+  flex:1;
+
+  padding:20px 30px;
+
+  margin-left:240px;
+
+  width:calc(100% - 240px);
+
+  overflow:hidden;
 }
 
-/* ================= CARD ================= */
+/* =========================
+   HEADING
+========================= */
 
-.nonveg-food-card {
-  position: relative;
-  background: #fff;
-  border-radius: 18px;
-  padding: 15px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
-  text-align: center;
-  transition: 0.3s ease;
-  overflow: hidden;
+.nonveg-heading-title{
+
+  text-align:center;
+
+  font-size:4rem;
+
+  font-weight:800;
+
+  margin-bottom:45px;
+
+  color:white;
+
+  text-shadow:
+    0 0 25px rgba(255,140,0,0.7);
 }
 
-.nonveg-food-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+.nonveg-heading-title span{
+
+  background:linear-gradient(
+    135deg,
+    #FF94B2,
+    #F24455,
+    #E5203A,
+    #660F24
+  );
+
+  -webkit-background-clip:text;
+
+  -webkit-text-fill-color:transparent;
 }
 
-/* ================= IMAGE ================= */
+/* =========================
+   GRID
+========================= */
 
-.nonveg-food-image {
-  width: 100%;
-  height: 190px;
-  object-fit: cover;
-  border-radius: 14px;
-  transition: 0.4s ease;
+.nonveg-food-grid{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(auto-fit,minmax(320px,1fr));
+
+  gap:35px;
+
+  width:100%;
+
+  overflow:hidden;
 }
 
-.nonveg-food-card:hover .nonveg-food-image {
-  transform: scale(1.05);
+/* =========================
+   CARD
+========================= */
+
+.nonveg-food-card{
+
+  position:relative;
+
+  min-width:0;
+
+  border-radius:30px;
+
+  overflow:hidden;
+
+  background:
+    rgba(255,255,255,0.07);
+
+  backdrop-filter:blur(16px);
+
+  border:
+    1px solid rgba(255,255,255,0.12);
+
+  box-shadow:
+    0 0 30px rgba(255,140,0,0.15);
+
+  transition:0.4s ease;
+
+  padding-bottom:25px;
 }
 
-/* ================= BADGES ================= */
+.nonveg-food-card:hover{
 
-.nonveg-badge-wrapper {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  right: 12px;
-  display: flex;
-  justify-content: space-between; /* ✅ split left & right */
-  z-index: 10;
-}
-/* NON VEG BADGE */
+  transform:
+    translateY(-12px)
+    scale(1.02);
 
-.nonveg-badge-label {
-  background: #b71c1c;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 20px;
-  font-size: 11px;
-  font-weight: bold;
-  width: fit-content;
-  letter-spacing: 1px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  box-shadow:
+    0 0 40px rgba(255,140,0,0.5);
 }
 
-/* OFF BADGE */
+/* =========================
+   IMAGE
+========================= */
 
-.nonveg-off-badge {
-  background: #ff2d55;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 20px;
-  font-size: 11px;
-  font-weight: bold;
-  width: fit-content;
-  box-shadow: 0 4px 10px rgba(255, 45, 85, 0.4);
+.nonveg-food-image{
+
+  width:100%;
+
+  height:250px;
+
+  object-fit:cover;
+
+  transition:0.5s ease;
 }
 
-/* ================= NAME ================= */
+.nonveg-food-card:hover
+.nonveg-food-image{
 
-.nonveg-food-name {
-  margin-top: 15px;
-  font-size: 20px;
-  font-weight: 700;
-  color: #222;
+  transform:scale(1.08);
 }
 
-/* ================= DESCRIPTION ================= */
+/* =========================
+   BADGES
+========================= */
 
-.nonveg-food-description {
-  font-size: 13px;
-  color: #666;
-  min-height: 42px;
-  line-height: 1.6;
-  margin: 8px 0;
+.nonveg-badge-wrapper{
+
+  position:absolute;
+
+  top:18px;
+
+  left:18px;
+
+  right:18px;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  z-index:5;
 }
 
-/* ================= PRICE ================= */
+.nonveg-badge-label{
 
-.nonveg-food-price {
-  font-size: 20px;
-  font-weight: bold;
-  color: #b71c1c;
-  margin: 10px 0;
+  background:
+    linear-gradient(
+      135deg,
+      #8b0000,
+      #ff3300
+    );
+
+  color:white;
+
+  padding:10px 18px;
+
+  border-radius:30px;
+
+  font-size:0.9rem;
+
+  font-weight:700;
+
+  box-shadow:
+    0 0 15px rgba(255,0,0,0.5);
 }
 
-/* ================= BUTTON ================= */
+.nonveg-off-badge{
 
-.nonveg-cart-button {
-  background: #ff2d55;
-  color: white;
-  border: none;
-  padding: 10px 18px;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: 0.3s;
-  font-weight: bold;
-  display: block;
-  margin: 12px auto 0;
+  background:
+    linear-gradient(
+      135deg,
+      #ff0066,
+      #ff5e00
+    );
+
+  color:white;
+
+  padding:10px 18px;
+
+  border-radius:30px;
+
+  font-size:0.9rem;
+
+  font-weight:700;
+
+  box-shadow:
+    0 0 15px rgba(255,94,0,0.5);
 }
 
-.nonveg-cart-button:hover {
-  transform: scale(1.05);
-  background: #e6003d;
+/* =========================
+   TITLE + RATING
+========================= */
+
+.nonveg-title-rating{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:12px;
+
+  padding:0 18px;
+
+  margin-top:18px;
+
+  margin-bottom:10px;
 }
 
-/* ================= PAGINATION ================= */
+/* =========================
+   FOOD NAME
+========================= */
 
-.nonveg-pagination-wrapper {
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
-  gap: 8px;
-  flex-wrap: wrap;
+.nonveg-food-name{
+
+  color:white;
+
+  font-size:1.7rem;
+
+  font-weight:700;
+
+  margin:0;
+
+  line-height:1.3;
+
+  text-align:left;
+
+  flex:1;
 }
 
-.nonveg-pagination-btn {
-  padding: 8px 14px;
-  border: none;
-  border-radius: 8px;
-  background: #e0e0e0;
-  cursor: pointer;
-  font-weight: bold;
-  transition: 0.3s;
+/* =========================
+   RATING BADGE
+========================= */
+
+.nonveg-rating-badge{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  min-width:82px;
+
+  height:42px;
+
+  padding:0 14px;
+
+  border-radius:50px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffb800,
+      #ff7b00
+    );
+
+  color:white;
+
+  font-size:0.95rem;
+
+  font-weight:700;
+
+  letter-spacing:0.5px;
+
+  border:
+    1px solid rgba(255,255,255,0.15);
+
+  backdrop-filter:blur(10px);
+
+  box-shadow:
+    0 0 12px rgba(255,184,0,0.5),
+    0 0 25px rgba(255,123,0,0.3);
+
+  transition:0.35s ease;
+
+  cursor:pointer;
 }
 
-.nonveg-pagination-btn:hover:not(:disabled) {
-  background: #ff2d55;
-  color: white;
+/* =========================
+   RATING HOVER
+========================= */
+
+.nonveg-food-card:hover
+.nonveg-rating-badge{
+
+  transform:
+    scale(1.08);
+
+  box-shadow:
+    0 0 18px rgba(255,184,0,0.8),
+    0 0 35px rgba(255,123,0,0.5);
 }
 
-.active-nonveg-page {
-  background: #ff2d55;
-  color: white;
+/* =========================
+   DESCRIPTION
+========================= */
+
+.nonveg-food-description{
+
+  text-align:center;
+
+  color:#d9d9d9;
+
+  font-size:1rem;
+
+  line-height:1.7;
+
+  padding:0 20px;
+
+  min-height:65px;
+
+  margin-top:8px;
 }
 
-.nonveg-pagination-btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+/* =========================
+   PRICE
+========================= */
+
+.nonveg-food-price{
+
+  text-align:center;
+
+  color:#ff9f1c;
+
+  font-size:2rem;
+
+  font-weight:800;
+
+  margin-top:20px;
+
+  margin-bottom:25px;
+
+  text-shadow:
+    0 0 15px rgba(255,153,0,0.5);
 }
 
-/* ================= RESPONSIVE ================= */
+/* =========================
+   BUTTON
+========================= */
 
-@media (max-width: 1024px) {
-  .nonveg-food-grid {
-    grid-template-columns: repeat(3, 1fr);
+.nonveg-cart-button{
+
+  width:85%;
+
+  display:block;
+
+  margin:auto;
+
+  padding:16px;
+
+  border:none;
+
+  border-radius:18px;
+
+  font-size:1.1rem;
+
+  font-weight:700;
+
+  cursor:pointer;
+
+  color:white;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff8c00,
+      #ff5e00
+    );
+
+  transition:0.4s ease;
+
+  box-shadow:
+    0 0 25px rgba(255,140,0,0.3);
+}
+
+.nonveg-cart-button:hover{
+
+  transform:scale(1.05);
+
+  box-shadow:
+    0 0 35px rgba(255,140,0,0.7);
+}
+
+/* =========================
+   PAGINATION
+========================= */
+
+.nonveg-pagination-wrapper{
+
+  margin-top:50px;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  flex-wrap:wrap;
+
+  gap:15px;
+}
+
+.nonveg-pagination-btn{
+
+  width:55px;
+
+  height:55px;
+
+  border:none;
+
+  border-radius:16px;
+
+  background:
+    rgba(255,255,255,0.08);
+
+  color:white;
+
+  font-size:1rem;
+
+  font-weight:700;
+
+  cursor:pointer;
+
+  transition:0.3s ease;
+
+  backdrop-filter:blur(10px);
+
+  border:
+    1px solid rgba(255,255,255,0.1);
+}
+
+.nonveg-pagination-btn:hover{
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff8c00,
+      #ff5e00
+    );
+
+  transform:translateY(-5px);
+
+  box-shadow:
+    0 0 20px rgba(255,140,0,0.5);
+}
+
+.active-nonveg-page{
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff8c00,
+      #ff5e00
+    );
+
+  box-shadow:
+    0 0 20px rgba(255,140,0,0.6);
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media(max-width:1200px){
+
+  .nonveg-food-grid{
+
+    grid-template-columns:
+      repeat(auto-fit,minmax(280px,1fr));
   }
 }
 
-@media (max-width: 768px) {
-  .nonveg-main-section {
-    margin-left: 0;
-    width: 100%;
-    padding: 15px;
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:992px){
+
+  .nonveg-page-wrapper{
+
+    flex-direction:column;
+
+    background-attachment:scroll;
   }
 
-  .nonveg-food-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .nonveg-main-section{
+
+    margin-left:0;
+
+    width:100%;
+
+    padding:20px 10px;
   }
 
-  .nonveg-heading-title {
-    font-size: 26px;
+  .nonveg-food-grid{
+
+    grid-template-columns:
+      repeat(auto-fit,minmax(260px,1fr));
   }
 }
 
-@media (max-width: 480px) {
-  .nonveg-food-grid {
-    grid-template-columns: repeat(1, 1fr);
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media(max-width:600px){
+
+  .nonveg-heading-title{
+
+    font-size:2.5rem;
   }
 
-  .nonveg-food-card {
-    padding: 12px;
+  .nonveg-food-grid{
+
+    grid-template-columns:1fr;
   }
 
-  .nonveg-food-image {
-    height: 220px;
+  .nonveg-food-image{
+
+    height:220px;
+  }
+
+  .nonveg-food-name{
+
+    font-size:1.3rem;
+  }
+
+  .nonveg-food-price{
+
+    font-size:1.6rem;
+  }
+
+  .nonveg-rating-badge{
+
+    min-width:72px;
+
+    height:38px;
+
+    font-size:0.8rem;
+  }
+
+  .nonveg-cart-button{
+
+    width:90%;
   }
 }

@@ -1,62 +1,442 @@
-/* ================= OFFERS PAGE ================= */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+/* ================= GLOBAL ================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Poppins",sans-serif;
+}
+
+/* ================= PAGE ================= */
 
 .offers-page{
+
   width:100%;
   min-height:100vh;
 
-  padding:120px 40px;
+  padding:150px 6% 70px;
+
+  background:
+
+    linear-gradient(
+      rgba(0,0,0,0.72),
+      rgba(0,0,0,0.85)
+    ),
+
+    url("/image/bg 2 image.jpg");
+
+  background-size:cover;
+
+  background-position:center;
+
+  background-attachment:fixed;
+
+  overflow:hidden;
+}
+
+/* ================= HEADER ================= */
+
+.offers-header{
+
+  width:100%;
 
   text-align:center;
 
+  margin-bottom:70px;
+
+  animation:fadeUp 1s ease;
+}
+
+/* ================= TITLE ================= */
+
+.offers-header h1{
+
+  font-size:4.3rem;
+
+  font-weight:800;
+
+  line-height:1.2;
+
+  margin-bottom:20px;
+
+  background:
+
+    linear-gradient(
+      90deg,
+      #ff512f,
+      #ff9800,
+      #dd2476
+    );
+
+  -webkit-background-clip:text;
+
+  -webkit-text-fill-color:transparent;
+
+  text-shadow:
+    0 10px 30px rgba(0,0,0,0.25);
+}
+
+/* ================= SUBTITLE ================= */
+
+.offers-header p{
+
   color:white;
+
+  font-size:1.25rem;
+
+  opacity:0.92;
+
+  max-width:850px;
+
+  margin:auto;
+
+  line-height:1.8;
 }
 
-.offers-page h1{
-  font-size:48px;
-  margin-bottom:40px;
-}
+/* ================= GRID ================= */
 
-/* ================= CONTAINER ================= */
+.offers-grid{
 
-.offers-container{
-  display:flex;
-  justify-content:center;
-  gap:30px;
-  flex-wrap:wrap;
+  display:grid;
+
+  grid-template-columns:
+    repeat(auto-fit,minmax(320px,1fr));
+
+  gap:38px;
 }
 
 /* ================= CARD ================= */
 
 .offer-card{
-  width:280px;
 
-  padding:35px 20px;
+  background:
+    rgba(255,255,255,0.08);
 
-  border-radius:20px;
+  backdrop-filter:blur(16px);
 
-  background:rgba(255,255,255,0.08);
+  border-radius:30px;
 
-  border:1px solid rgba(255,255,255,0.15);
+  overflow:hidden;
 
-  backdrop-filter:blur(10px);
+  border:
+    1px solid rgba(255,255,255,0.10);
 
-  transition:0.3s;
+  box-shadow:
+    0 15px 40px rgba(0,0,0,0.45);
 
-  box-shadow:0 5px 20px rgba(0,0,0,0.3);
+  transition:0.4s ease;
+
+  position:relative;
 }
+
+/* ================= HOVER ================= */
 
 .offer-card:hover{
-  transform:translateY(-8px);
-  border-color:orange;
+
+  transform:
+    translateY(-12px)
+    scale(1.02);
+
+  box-shadow:
+    0 20px 45px rgba(255,152,0,0.18);
+
+  border-color:
+    rgba(255,152,0,0.30);
 }
 
-.offer-card h2{
-  font-size:30px;
-  color:orange;
-  margin-bottom:10px;
+/* ================= IMAGE BOX ================= */
+
+.offer-image-box{
+
+  position:relative;
+
+  overflow:hidden;
 }
 
-.offer-card p{
-  font-size:16px;
-  color:#ddd;
+/* ================= IMAGE ================= */
+
+.offer-image{
+
+  width:100%;
+
+  height:250px;
+
+  object-fit:cover;
+
+  transition:0.5s ease;
+}
+
+.offer-card:hover .offer-image{
+
+  transform:scale(1.08);
+}
+
+/* ================= BADGE ================= */
+
+.offer-badge{
+
+  position:absolute;
+
+  top:18px;
+  left:18px;
+
+  background:
+
+    linear-gradient(
+      90deg,
+      #ff512f,
+      #dd2476
+    );
+
+  color:white;
+
+  padding:12px 22px;
+
+  border-radius:40px;
+
+  font-weight:700;
+
+  font-size:1rem;
+
+  box-shadow:
+    0 8px 18px rgba(221,36,118,0.35);
+}
+
+/* ================= CONTENT ================= */
+
+.offer-content{
+
+  padding:25px;
+}
+
+/* ================= CARD TITLE ================= */
+
+.offer-content h2{
+
+  color:white;
+
+  margin-bottom:14px;
+
+  font-size:2rem;
+
+  font-weight:700;
+}
+
+/* ================= DESCRIPTION ================= */
+
+.offer-content p{
+
+  color:#d8d8d8;
+
+  margin-bottom:22px;
+
+  line-height:1.8;
+
+  font-size:1rem;
+}
+
+/* ================= COUPON ================= */
+
+.coupon{
+
+  background:
+    rgba(255,255,255,0.10);
+
+  padding:15px 18px;
+
+  border-radius:15px;
+
+  color:white;
+
+  margin-bottom:24px;
+
+  text-align:center;
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+}
+
+/* ================= COUPON CODE ================= */
+
+.coupon span{
+
+  color:#ffb347;
+
+  font-weight:700;
+
+  margin-left:8px;
+
+  letter-spacing:1px;
+}
+
+/* ================= BUTTON ================= */
+
+.claim-btn{
+
+  width:100%;
+
+  padding:16px;
+
+  border:none;
+
+  border-radius:16px;
+
+  font-weight:700;
+
+  font-size:1rem;
+
+  color:white;
+
+  cursor:pointer;
+
+  background:
+
+    linear-gradient(
+      90deg,
+      #ff512f,
+      #dd2476
+    );
+
+  transition:0.35s ease;
+
+  position:relative;
+
+  overflow:hidden;
+}
+
+/* ================= BUTTON SHINE ================= */
+
+.claim-btn::before{
+
+  content:"";
+
+  position:absolute;
+
+  top:0;
+  left:-120%;
+
+  width:100%;
+  height:100%;
+
+  background:
+
+    linear-gradient(
+      120deg,
+      transparent,
+      rgba(255,255,255,0.25),
+      transparent
+    );
+
+  transition:0.6s;
+}
+
+.claim-btn:hover::before{
+
+  left:120%;
+}
+
+/* ================= BUTTON HOVER ================= */
+
+.claim-btn:hover{
+
+  transform:scale(1.03);
+
+  box-shadow:
+    0 10px 25px rgba(221,36,118,0.35);
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes fadeUp{
+
+  from{
+
+    opacity:0;
+
+    transform:
+      translateY(40px);
+  }
+
+  to{
+
+    opacity:1;
+
+    transform:
+      translateY(0);
+  }
+}
+
+/* ================= TABLET ================= */
+
+@media(max-width:992px){
+
+  .offers-header h1{
+
+    font-size:3.3rem;
+  }
+
+  .offers-grid{
+
+    grid-template-columns:
+      repeat(2,1fr);
+  }
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+  .offers-page{
+
+    padding:
+      130px 20px 50px;
+  }
+
+  .offers-header{
+
+    margin-bottom:50px;
+  }
+
+  .offers-header h1{
+
+    font-size:2.4rem;
+
+    line-height:1.3;
+  }
+
+  .offers-header p{
+
+    font-size:1rem;
+
+    line-height:1.7;
+  }
+
+  .offers-grid{
+
+    grid-template-columns:1fr;
+
+    gap:28px;
+  }
+
+  .offer-image{
+
+    height:220px;
+  }
+
+  .offer-content h2{
+
+    font-size:1.6rem;
+  }
+
+  .offer-content p{
+
+    font-size:0.95rem;
+  }
+
+  .claim-btn{
+
+    padding:14px;
+  }
 }

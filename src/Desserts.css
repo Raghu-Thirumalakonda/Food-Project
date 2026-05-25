@@ -1,249 +1,627 @@
-/* ================= PAGE ================= */
+/* =========================
+   GOOGLE FONT
+========================= */
 
-.desserts-page {
-  min-height: 100vh;
-  margin-left: 240px;
-  width: calc(100% - 240px);
-  padding: 40px 25px;
-  background: #ffffff;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+/* =========================
+   GLOBAL
+========================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Poppins",sans-serif;
 }
 
-/* ================= TITLE ================= */
+body{
 
-.desserts-title {
-  text-align: center;
-  color: #111;
-  font-size: 2.8rem;
-  margin-bottom: 40px;
-  font-weight: 700;
-  letter-spacing: 1px;
+  background:black;
+  overflow-x:hidden;
 }
 
-/* ================= GRID ================= */
+/* =========================
+   PAGE LAYOUT
+========================= */
 
-.desserts-container {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 28px;
+.page-layout{
+
+  display:flex;
+
+  min-height:100vh;
+
+  background:
+
+    linear-gradient(
+      rgba(0,0,0,0.82),
+      rgba(0,0,0,0.88)
+    ),
+
+    url("/image/bg image.jpg");
+
+  background-size:cover;
+
+  background-position:center;
+
+  background-attachment:fixed;
+
+  padding:20px;
 }
 
-/* ================= CARD ================= */
+/* =========================
+   PAGE
+========================= */
 
-.dessert-card {
-  background: #ffffff;
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
-  border: 1px solid #f1f1f1;
+.desserts-page{
+
+  flex:1;
+
+  padding:25px 30px;
+
+  margin-left:240px;
+
+  width:calc(100% - 240px);
+
+  overflow:hidden;
 }
 
-.dessert-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+/* =========================
+   TITLE
+========================= */
+
+.desserts-title{
+
+  text-align:center;
+
+  color:white;
+
+  font-size:4rem;
+
+  margin-bottom:45px;
+
+  font-weight:800;
+
+  letter-spacing:1px;
+
+  text-shadow:
+    0 0 25px rgba(255,140,0,0.7);
 }
 
-/* ================= IMAGE ================= */
+/* =========================
+   GRID
+========================= */
 
-.dessert-img-box {
-  width: 100%;
-  height: 230px;
-  overflow: hidden;
+.desserts-container{
+
+  width:100%;
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(auto-fit,minmax(320px,1fr));
+
+  gap:35px;
+
+  overflow:hidden;
 }
 
-.dessert-img-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: 0.4s ease;
+/* =========================
+   CARD
+========================= */
+
+.dessert-card{
+
+  position:relative;
+
+  min-width:0;
+
+  overflow:hidden;
+
+  border-radius:30px;
+
+  background:
+    rgba(255,255,255,0.07);
+
+  backdrop-filter:blur(16px);
+
+  border:
+    1px solid rgba(255,255,255,0.12);
+
+  box-shadow:
+    0 0 30px rgba(255,140,0,0.15);
+
+  transition:0.4s ease;
 }
 
-.dessert-card:hover .dessert-img-box img {
-  transform: scale(1.06);
+.dessert-card:hover{
+
+  transform:
+    translateY(-12px)
+    scale(1.02);
+
+  box-shadow:
+    0 0 40px rgba(255,140,0,0.5);
 }
 
-/* ================= INFO ================= */
+/* =========================
+   IMAGE WRAPPER
+========================= */
 
-.dessert-info {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+.dessert-img-wrapper{
+
+  position:relative;
+
+  overflow:hidden;
 }
 
-.dessert-info h2 {
-  color: #111;
-  font-size: 1.4rem;
-  margin-bottom: 10px;
-  font-weight: 700;
+/* =========================
+   IMAGE
+========================= */
+
+.dessert-img{
+
+  width:100%;
+
+  height:250px;
+
+  object-fit:cover;
+
+  transition:0.5s ease;
 }
 
-/* ================= DESCRIPTION ================= */
+.dessert-card:hover
+.dessert-img{
 
-.dessert-description {
-  color: #666;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  margin-bottom: 14px;
-  min-height: 45px;
+  transform:scale(1.08);
 }
 
-/* ================= PRICE ================= */
+/* =========================
+   BADGES
+========================= */
 
-.dessert-price {
-  color: #141313;
-  font-size: 1.1rem;
-  margin-bottom: 18px;
-  font-weight: 700;
+.dessert-badge-wrapper{
+
+  position:absolute;
+
+  top:15px;
+
+  left:15px;
+
+  right:15px;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  z-index:10;
 }
 
-/* ================= BUTTON ================= */
+/* =========================
+   TYPE BADGE
+========================= */
 
-.dessert-btn {
-  border: none;
-  outline: none;
-  padding: 10px 18px;
-  border-radius: 16px;
-  background: #ff2d55;
-  color: white;
-  font-size: 0.95rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s ease;
-  display: inline-block;
+.dessert-type-badge{
+
+  background:
+    linear-gradient(
+      135deg,
+      #7b1fa2,
+      #ba68c8
+    );
+
+  color:white;
+
+  padding:8px 16px;
+
+  border-radius:25px;
+
+  font-size:12px;
+
+  font-weight:700;
+
+  box-shadow:
+    0 0 15px rgba(186,104,200,0.5);
 }
 
-.dessert-btn:hover {
-  background: #e6003d;
-  transform: scale(1.05);
+/* =========================
+   OFF BADGE
+========================= */
+
+.dessert-off-badge{
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff0066,
+      #ff5e00
+    );
+
+  color:white;
+
+  padding:8px 16px;
+
+  border-radius:25px;
+
+  font-size:12px;
+
+  font-weight:700;
+
+  box-shadow:
+    0 0 15px rgba(255,94,0,0.5);
 }
 
-/* ================= PAGINATION ================= */
+/* =========================
+   INFO
+========================= */
 
-.dessert-pagination {
-  margin-top: 45px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
+.dessert-info{
+
+  padding:25px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  text-align:center;
 }
 
-.dessert-page-btn {
-  min-width: 35px;
-  height: 35px;
-  border: 1px solid #eee;
-  border-radius: 8px;
-  background: white;
-  color: #333;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  padding: 0 8px;
-  transition: 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* =========================
+   TITLE + RATING
+========================= */
+
+.dessert-title-rating{
+
+  width:100%;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:12px;
+
+  margin-bottom:14px;
 }
 
-.dessert-page-btn:hover {
-  background: #ff2d55;
-  color: white;
-  border-color: transparent;
-  transform: scale(1.05);
+/* =========================
+   NAME
+========================= */
+
+.dessert-info h2{
+
+  color:white;
+
+  font-size:1.7rem;
+
+  font-weight:700;
+
+  margin:0;
+
+  text-align:left;
+
+  line-height:1.3;
+
+  flex:1;
 }
 
-/* ================= ACTIVE PAGE ================= */
+/* =========================
+   RATING BADGE
+========================= */
 
-.dessert-active-page {
-  background: #ff2d55;
-  color: white;
-  border-color: transparent;
+.dessert-rating-badge{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  min-width:82px;
+
+  height:42px;
+
+  padding:0 14px;
+
+  border-radius:50px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffb800,
+      #ff7b00
+    );
+
+  color:white;
+
+  font-size:0.95rem;
+
+  font-weight:700;
+
+  letter-spacing:0.5px;
+
+  border:
+    1px solid rgba(255,255,255,0.15);
+
+  backdrop-filter:blur(10px);
+
+  box-shadow:
+    0 0 12px rgba(255,184,0,0.5),
+    0 0 25px rgba(255,123,0,0.3);
+
+  transition:0.35s ease;
+
+  cursor:pointer;
 }
 
-/* ================= RESPONSIVE ================= */
+/* =========================
+   RATING HOVER
+========================= */
 
-@media (max-width: 768px) {
+.dessert-card:hover
+.dessert-rating-badge{
 
-  .desserts-page {
-    margin-left: 0;
-    width: 100%;
-    padding: 20px;
+  transform:
+    scale(1.08);
+
+  box-shadow:
+    0 0 18px rgba(255,184,0,0.8),
+    0 0 35px rgba(255,123,0,0.5);
+}
+
+/* =========================
+   DESCRIPTION
+========================= */
+
+.dessert-description{
+
+  color:#d9d9d9;
+
+  font-size:1rem;
+
+  line-height:1.7;
+
+  margin-bottom:18px;
+
+  min-height:60px;
+
+  padding:0 10px;
+}
+
+/* =========================
+   PRICE
+========================= */
+
+.dessert-price{
+
+  color:#ff9f1c;
+
+  font-size:2rem;
+
+  margin-bottom:25px;
+
+  font-weight:800;
+
+  text-shadow:
+    0 0 15px rgba(255,153,0,0.5);
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.dessert-btn{
+
+  border:none;
+
+  outline:none;
+
+  width:85%;
+
+  padding:16px;
+
+  border-radius:18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff8c00,
+      #ff5e00
+    );
+
+  color:white;
+
+  font-size:1.1rem;
+
+  font-weight:700;
+
+  cursor:pointer;
+
+  transition:0.4s ease;
+
+  box-shadow:
+    0 0 25px rgba(255,140,0,0.3);
+}
+
+.dessert-btn:hover{
+
+  transform:scale(1.05);
+
+  box-shadow:
+    0 0 35px rgba(255,140,0,0.7);
+}
+
+/* =========================
+   PAGINATION
+========================= */
+
+.dessert-pagination{
+
+  margin-top:50px;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  gap:15px;
+
+  flex-wrap:wrap;
+}
+
+.dessert-page-btn{
+
+  width:55px;
+
+  height:55px;
+
+  border:none;
+
+  border-radius:16px;
+
+  background:
+    rgba(255,255,255,0.08);
+
+  color:white;
+
+  font-size:1rem;
+
+  font-weight:700;
+
+  cursor:pointer;
+
+  transition:0.3s ease;
+
+  backdrop-filter:blur(10px);
+
+  border:
+    1px solid rgba(255,255,255,0.1);
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+}
+
+.dessert-page-btn:hover{
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff8c00,
+      #ff5e00
+    );
+
+  transform:translateY(-5px);
+
+  box-shadow:
+    0 0 20px rgba(255,140,0,0.5);
+}
+
+/* =========================
+   ACTIVE PAGE
+========================= */
+
+.dessert-active-page{
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff8c00,
+      #ff5e00
+    );
+
+  box-shadow:
+    0 0 20px rgba(255,140,0,0.6);
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media(max-width:1200px){
+
+  .desserts-container{
+
+    grid-template-columns:
+      repeat(auto-fit,minmax(280px,1fr));
+  }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:992px){
+
+  .page-layout{
+
+    flex-direction:column;
   }
 
-  .desserts-title {
-    font-size: 2rem;
+  .desserts-page{
+
+    margin-left:0;
+
+    width:100%;
+
+    padding:20px 10px;
   }
 
-  .dessert-img-box {
-    height: 200px;
+  .desserts-container{
+
+    grid-template-columns:
+      repeat(auto-fit,minmax(260px,1fr));
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+  .desserts-title{
+
+    font-size:2.5rem;
   }
 
-  .dessert-description {
-    font-size: 0.9rem;
+  .desserts-container{
+
+    grid-template-columns:1fr;
   }
 
-}
+  .dessert-img{
 
+    height:220px;
+  }
 
+  .dessert-info h2{
 
-/* ================= CARD ================= */
+    font-size:1.3rem;
+  }
 
-.dessert-card {
-  position: relative;
-  overflow: hidden;
-  background: #fff;
-  border-radius: 18px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-}
+  .dessert-price{
 
-/* IMAGE WRAPPER */
+    font-size:1.6rem;
+  }
 
-.dessert-img-wrapper {
-  position: relative;
-}
+  .dessert-rating-badge{
 
-/* IMAGE */
+    min-width:72px;
 
-.dessert-img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
+    height:38px;
 
-/* ================= BADGES ================= */
+    font-size:0.8rem;
+  }
 
-.dessert-badge-wrapper {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  right: 10px;
+  .dessert-btn{
 
-  display: flex;
-  justify-content: space-between;
-  z-index: 10;
-}
-
-/* TYPE BADGE */
-
-.dessert-type-badge {
-  background: #6a1b9a;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 20px;
-  font-size: 11px;
-  font-weight: bold;
-}
-
-/* OFF BADGE */
-
-.dessert-off-badge {
-  background: #ff2d55;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 20px;
-  font-size: 11px;
-  font-weight: bold;
+    width:90%;
+  }
 }

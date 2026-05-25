@@ -1,175 +1,606 @@
-/* ================= CONTACT PAGE ================= */
+/* =========================
+   GOOGLE FONT
+========================= */
 
-.contact-page{
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+/* =========================
+   GLOBAL
+========================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Poppins",sans-serif;
+}
+
+body{
+  background:#000;
+  overflow-x:hidden;
+}
+
+/* =========================
+   CONTACT PAGE
+========================= */
+
+.food-contact-page{
+
   width:100%;
+
   min-height:100vh;
 
-  padding:120px 20px;
+  padding:90px 8%;
+
+  position:relative;
+
+  overflow:hidden;
+
+  background:
+  linear-gradient(
+    rgba(0,0,0,0.82),
+    rgba(0,0,0,0.88)
+  ),
+  url("/image/bg 2 image.jpg");
+
+  background-size:cover;
+
+  background-position:center;
+
+  background-repeat:no-repeat;
+
+  background-attachment:fixed;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.food-contact-header{
+
+  width:100%;
+
+  position:relative;
+
+  z-index:2;
+
+  margin-bottom:70px;
+
+  text-align:center;
+}
+
+/* =========================
+   CONTACT TITLE
+========================= */
+
+.mobile-contact-title{
+
+  width:100%;
 
   display:flex;
+
   flex-direction:column;
+
   align-items:center;
+
   justify-content:center;
 
-  background:#ffffff;
+  text-align:center;
 
-  color:#111;
+  margin-bottom:20px;
 }
 
-/* ================= TITLE ================= */
+/* =========================
+   FIRST LINE
+========================= */
 
-.contact-page h1{
-  font-size:48px;
+.title-line-1{
 
-  margin-bottom:40px;
-
-  color:#111;
-
-  font-weight:700;
-}
-
-/* ================= FORM BOX ================= */
-
-.contact-box{
-  width:100%;
-  max-width:500px;
-
-  display:flex;
-  flex-direction:column;
-
-  gap:20px;
-
-  padding:40px;
-
-  border-radius:24px;
-
-  background:#ffffff;
-
-  border:1px solid #e5e5e5;
-
-  box-shadow:0 10px 30px rgba(0,0,0,0.08);
-
-  transition:0.3s;
-}
-
-.contact-box:hover{
-  transform:translateY(-5px);
-
-  box-shadow:0 15px 35px rgba(0,0,0,0.12);
-}
-
-/* ================= INPUTS ================= */
-
-.contact-box input,
-.contact-box textarea{
   width:100%;
 
-  padding:16px;
+  font-size:72px;
 
-  border:1px solid #ddd;
+  font-weight:800;
 
-  outline:none;
-
-  border-radius:14px;
-
-  background:#f8f8f8;
-
-  color:#111;
-
-  font-size:15px;
-
-  transition:0.3s;
-}
-
-/* INPUT FOCUS */
-
-.contact-box input:focus,
-.contact-box textarea:focus{
-  border-color:orange;
-
-  background:#fff;
-
-  box-shadow:0 0 10px rgba(255,165,0,0.2);
-}
-
-/* ================= PLACEHOLDER ================= */
-
-.contact-box input::placeholder,
-.contact-box textarea::placeholder{
-  color:#888;
-}
-
-/* ================= TEXTAREA ================= */
-
-.contact-box textarea{
-  height:140px;
-
-  resize:none;
-}
-
-/* ================= BUTTON ================= */
-
-.contact-box button{
-  padding:15px;
-
-  border:none;
-
-  border-radius:35px;
-
-  background:orange;
+  line-height:1;
 
   color:white;
 
-  font-size:16px;
+  letter-spacing:1px;
 
-  font-weight:bold;
+  text-align:center;
+
+  text-shadow:
+  0 0 18px rgba(255,120,0,0.5);
+}
+
+/* =========================
+   SECOND LINE
+========================= */
+
+.title-line-2{
+
+  width:100%;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:10px;
+
+  font-size:72px;
+
+  font-weight:800;
+
+  line-height:1;
+
+  color:white;
+
+  letter-spacing:1px;
+
+  text-align:center;
+
+  text-shadow:
+  0 0 18px rgba(255,120,0,0.5);
+}
+
+/* =========================
+   SUBTITLE
+========================= */
+
+.food-contact-header p{
+
+  color:#d1d5db;
+
+  font-size:22px;
+
+  line-height:1.8;
+
+  max-width:700px;
+
+  margin:auto;
+
+  text-align:center;
+}
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.food-contact-container{
+
+  width:100%;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:flex-start;
+
+  gap:60px;
+
+  flex-wrap:wrap;
+
+  position:relative;
+
+  z-index:2;
+}
+
+/* =========================
+   LEFT SECTION
+========================= */
+
+.food-contact-left{
+
+  flex:1;
+
+  min-width:320px;
+}
+
+.food-contact-left h2{
+
+  color:white;
+
+  font-size:48px;
+
+  margin-bottom:20px;
+}
+
+.food-contact-left p{
+
+  color:#d1d5db;
+
+  line-height:1.9;
+
+  margin-bottom:35px;
+
+  font-size:17px;
+}
+
+/* =========================
+   CONTACT CARD
+========================= */
+
+.food-contact-card{
+
+  background:
+  rgba(255,255,255,0.08);
+
+  backdrop-filter:blur(14px);
+
+  border:
+  1px solid rgba(255,255,255,0.08);
+
+  border-radius:26px;
+
+  padding:25px;
+
+  display:flex;
+
+  align-items:center;
+
+  gap:22px;
+
+  margin-bottom:28px;
+
+  transition:0.4s ease;
+
+  box-shadow:
+  0 10px 30px rgba(0,0,0,0.3);
+}
+
+.food-contact-card:hover{
+
+  transform:
+  translateY(-8px);
+
+  background:
+  rgba(255,255,255,0.12);
+
+  box-shadow:
+  0 15px 35px rgba(255,90,0,0.25);
+}
+
+/* =========================
+   CARD ICON
+========================= */
+
+.food-contact-card span{
+
+  min-width:72px;
+
+  height:72px;
+
+  border-radius:50%;
+
+  background:
+  linear-gradient(
+    135deg,
+    #ff6b00,
+    #ff3300
+  );
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  color:white;
+
+  font-size:30px;
+
+  box-shadow:
+  0 8px 25px rgba(255,90,0,0.45);
+}
+
+/* =========================
+   CARD TEXT
+========================= */
+
+.food-contact-card h3{
+
+  color:white;
+
+  font-size:24px;
+
+  margin-bottom:8px;
+}
+
+.food-contact-card p{
+
+  color:#d1d5db;
+
+  margin:0;
+
+  font-size:15px;
+
+  line-height:1.7;
+
+  word-break:break-word;
+}
+
+/* =========================
+   RIGHT SECTION
+========================= */
+
+.food-contact-right{
+
+  flex:1;
+
+  min-width:320px;
+}
+
+/* =========================
+   FORM
+========================= */
+
+.food-contact-right form{
+
+  background:
+  rgba(255,255,255,0.08);
+
+  backdrop-filter:blur(16px);
+
+  border:
+  1px solid rgba(255,255,255,0.08);
+
+  padding:45px;
+
+  border-radius:32px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:25px;
+
+  box-shadow:
+  0 15px 40px rgba(0,0,0,0.35);
+}
+
+/* =========================
+   INPUT
+========================= */
+
+.food-contact-right input,
+.food-contact-right textarea{
+
+  width:100%;
+
+  padding:18px 20px;
+
+  border:none;
+
+  border-radius:16px;
+
+  background:
+  rgba(255,255,255,0.1);
+
+  color:white;
+
+  font-size:17px;
+
+  outline:none;
+
+  transition:0.3s ease;
+}
+
+.food-contact-right input:focus,
+.food-contact-right textarea:focus{
+
+  background:
+  rgba(255,255,255,0.14);
+
+  border:
+  1px solid rgba(255,120,0,0.5);
+
+  box-shadow:
+  0 0 15px rgba(255,90,0,0.25);
+}
+
+.food-contact-right input::placeholder,
+.food-contact-right textarea::placeholder{
+
+  color:#d1d5db;
+}
+
+.food-contact-right textarea{
+
+  resize:none;
+
+  min-height:160px;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.food-contact-right button{
+
+  border:none;
+
+  padding:18px;
+
+  border-radius:16px;
+
+  background:
+  linear-gradient(
+    135deg,
+    #ff6b00,
+    #ff3300
+  );
+
+  color:white;
+
+  font-size:20px;
+
+  font-weight:700;
 
   cursor:pointer;
 
-  transition:0.3s;
+  transition:0.4s ease;
 }
 
-/* BUTTON HOVER */
+.food-contact-right button:hover{
 
-.contact-box button:hover{
-  background:#ff8800;
+  transform:
+  scale(1.03);
 
-  transform:translateY(-3px);
-
-  box-shadow:0 8px 20px rgba(255,165,0,0.3);
+  box-shadow:
+  0 12px 30px rgba(255,80,0,0.45);
 }
 
-/* ================= RESPONSIVE ================= */
+/* =========================
+   MOBILE VIEW
+========================= */
 
-@media(max-width:768px){
+@media(max-width:900px){
 
-  .contact-page{
-    padding:100px 15px;
+  .food-contact-page{
+
+    padding:50px 18px;
+
+    background-attachment:scroll;
   }
 
-  .contact-page h1{
-    font-size:36px;
+  .food-contact-container{
+
+    flex-direction:column;
+
+    gap:40px;
   }
 
-  .contact-box{
-    padding:30px 20px;
+  /* MOBILE TITLE */
+
+  .mobile-contact-title{
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    margin-bottom:18px;
   }
 
+  .title-line-1{
+
+    font-size:48px;
+
+    line-height:0.95;
+
+    text-align:center;
+  }
+
+  .title-line-2{
+
+    font-size:48px;
+
+    line-height:0.95;
+
+    margin-top:-2px;
+
+    text-align:center;
+
+    justify-content:center;
+  }
+
+  /* SUBTITLE */
+
+  .food-contact-header p{
+
+    text-align:center;
+
+    padding:0 10px;
+
+    font-size:15px;
+
+    line-height:1.7;
+  }
+
+  /* LEFT TITLE */
+
+  .food-contact-left h2{
+
+    font-size:30px;
+
+    line-height:1.2;
+
+    text-align:center;
+  }
+
+  /* FORM */
+
+  .food-contact-right form{
+
+    padding:28px;
+  }
+
+  /* CARD */
+
+  .food-contact-card{
+
+    padding:20px;
+
+    gap:16px;
+  }
+
+  /* CARD ICON */
+
+  .food-contact-card span{
+
+    min-width:58px;
+
+    height:58px;
+
+    font-size:22px;
+  }
+
+  /* CARD TEXT */
+
+  .food-contact-card h3{
+
+    font-size:20px;
+  }
+
+  .food-contact-card p{
+
+    font-size:14px;
+  }
+
+  /* INPUT */
+
+  .food-contact-right input,
+  .food-contact-right textarea{
+
+    font-size:15px;
+  }
+
+  /* BUTTON */
+
+  .food-contact-right button{
+
+    font-size:17px;
+  }
 }
+
+/* =========================
+   SMALL MOBILE
+========================= */
 
 @media(max-width:480px){
 
-  .contact-page h1{
-    font-size:30px;
+  .title-line-1{
+
+    font-size:42px;
   }
 
-  .contact-box{
-    border-radius:18px;
-  }
+  .title-line-2{
 
-  .contact-box input,
-  .contact-box textarea{
-    padding:14px;
+    font-size:42px;
   }
 
 }

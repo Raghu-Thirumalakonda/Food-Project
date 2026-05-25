@@ -18,19 +18,26 @@ import {
 
 import "./Cart.css";
 
-/* ✅ Toastify */
+/* ================= TOAST ================= */
+
 import { toast } from "react-toastify";
 
-/* ✅ Confetti */
+import "react-toastify/dist/ReactToastify.css";
+
+/* ================= CONFETTI ================= */
+
 import confetti from "canvas-confetti";
 
-/* ✅ Sweet Alert */
+/* ================= SWEET ALERT ================= */
+
 import Swal from "sweetalert2";
 
-/* ✅ EMAILJS */
+/* ================= EMAILJS ================= */
+
 import emailjs from "@emailjs/browser";
 
-/* ✅ QR CODE */
+/* ================= QR CODE ================= */
+
 import { QRCode } from "react-qr-code";
 
 function Cart() {
@@ -39,22 +46,30 @@ function Cart() {
 
   const navigate = useNavigate();
 
-  // ================= CART (FIXED ONLY THIS LINE) =================
+  /* ================= CART ================= */
+
   const cartItems =
-    useSelector((state) => state.cart.cartItems || []);
+    useSelector(
+      (state) => state.cart.cartItems || []
+    );
 
-  // ================= COUPON =================
-  const [cupon, setCupon] = useState("");
+  /* ================= COUPON ================= */
 
-  // ================= PAYMENT =================
+  const [cupon, setCupon] =
+    useState("");
+
+  /* ================= PAYMENT ================= */
+
   const [paymentMethod, setPaymentMethod] =
     useState("");
 
-  // ================= EMAIL =================
+  /* ================= EMAIL ================= */
+
   const [customerEmail, setCustomerEmail] =
     useState("");
 
-  // ================= DISCOUNT =================
+  /* ================= DISCOUNT ================= */
+
   const [selectedDiscount, setSelectedDiscount] =
     useState(10);
 
@@ -67,92 +82,162 @@ function Cart() {
     (state) => state.cuponDetails
   );
 
-  // ================= TOTAL PRICE (SAFE FIX) =================
-  const totalPrice = (cartItems || []).reduce(
-    (total, item) =>
-      total + item.price * item.quantity,
-    0
-  );
+  /* ================= TOTAL ================= */
 
-  // ================= NORMAL DISCOUNT =================
+  const totalPrice =
+    (cartItems || []).reduce(
+
+      (total, item) =>
+
+        total +
+        item.price * item.quantity,
+
+      0
+    );
+
+  /* ================= NORMAL DISCOUNT ================= */
+
   const normalDiscount =
     (totalPrice * selectedDiscount) / 100;
 
   const afterDiscount =
     totalPrice - normalDiscount;
 
-  // ================= COUPON DISCOUNT =================
+  /* ================= COUPON DISCOUNT ================= */
+
   const couponDiscountAmount =
     (afterDiscount * discount) / 100;
 
   const finalAmountAfterCoupon =
     afterDiscount - couponDiscountAmount;
 
-  // ================= TAX =================
-  const tax = finalAmountAfterCoupon * 0.18;
+  /* ================= TAX ================= */
 
-  // ================= DELIVERY =================
+  const tax =
+    finalAmountAfterCoupon * 0.18;
+
+  /* ================= DELIVERY ================= */
+
   const deliveryFee =
-    finalAmountAfterCoupon > 0 ? 40 : 0;
+    finalAmountAfterCoupon > 0
+      ? 40
+      : 0;
 
-  // ================= FINAL TOTAL =================
+  /* ================= FINAL TOTAL ================= */
+
   const finalTotal =
+
     finalAmountAfterCoupon +
     tax +
     deliveryFee;
 
-  // ================= HANDLE CHECKOUT =================
+  /* ================= CHECKOUT ================= */
+
   const handleCheckout = () => {
 
     if (!customerEmail) {
-      toast.error("Please Enter Email");
+
+      toast.error(
+
+        "Please Enter Email",
+
+        {
+
+          toastId:"email-error",
+
+          position:"top-right",
+
+          autoClose:2000,
+
+          pauseOnHover:false,
+        }
+      );
+
       return;
     }
 
     const templateParams = {
+
       order_id:
+
         "ORDER-" +
-        Math.floor(Math.random() * 100000),
+        Math.floor(
+          Math.random() * 100000
+        ),
 
-      orders: cartItems.map((item) => ({
-        name: item.name,
-        price: (
-          item.price *
-          item.quantity
-        ).toFixed(2),
-        units: item.quantity,
-      })),
+      orders:
 
-      cost: {
-        shipping: 50,
-        tax: tax.toFixed(2),
-        total: finalTotal.toFixed(2),
+        cartItems.map((item) => ({
+
+          name:item.name,
+
+          price:(
+            item.price *
+            item.quantity
+          ).toFixed(2),
+
+          units:item.quantity,
+        })),
+
+      cost:{
+
+        shipping:50,
+
+        tax:tax.toFixed(2),
+
+        total:
+          finalTotal.toFixed(2),
       },
 
-      email: customerEmail,
+      email:customerEmail,
     };
 
     emailjs.send(
+
       "service_w1dbaxs",
+
       "template_cyqrsjb",
+
       templateParams,
+
       "SU4bbBhAdBdECqcAD"
     )
 
     .then(() => {
 
-      toast.success("Order Email Sent ✅");
+      toast.success(
+
+        "Order Email Sent ✅",
+
+        {
+
+          toastId:"order-success",
+
+          position:"top-right",
+
+          autoClose:2000,
+
+          pauseOnHover:false,
+        }
+      );
 
       confetti({
-        particleCount: 300,
-        spread: 150,
+
+        particleCount:300,
+
+        spread:150,
       });
 
-      navigate("/orders", {
-        state: {
-          orders: cartItems,
-        },
-      });
+      navigate(
+
+        "/orders",
+
+        {
+          state:{
+            orders:cartItems,
+          },
+        }
+      );
 
     })
 
@@ -160,7 +245,21 @@ function Cart() {
 
       console.log(error);
 
-      toast.error("Email Failed ❌");
+      toast.error(
+
+        "Email Failed ❌",
+
+        {
+
+          toastId:"email-failed",
+
+          position:"top-right",
+
+          autoClose:2000,
+
+          pauseOnHover:false,
+        }
+      );
 
     });
 
@@ -168,337 +267,554 @@ function Cart() {
 
   return (
 
-    <div className="cart-container">
+    <>
 
-      {/* ================= LEFT ================= */}
+      {/* ================= MAIN ================= */}
 
-      <div className="cart-left">
+      <div className="cart-container">
 
-        <div className="cart-header">
+        {/* ================= LEFT ================= */}
 
-          <h1>Your Cart 🛒</h1>
+        <div className="cart-left">
 
-          <button
-            type="button"
-            className="clear-btn"
+          <div className="cart-header">
 
-            onClick={() => {
+            <h1>Your Cart 🛒</h1>
 
-              Swal.fire({
+            <button
 
-                title: "Are you sure?",
+              type="button"
 
-                text: "All cart items will be removed!",
+              className="clear-btn"
 
-                icon: "warning",
+              onClick={() => {
 
-                showCancelButton: true,
+                Swal.fire({
 
-                confirmButtonColor: "#ef4444",
+                  title:"Are you sure?",
 
-                cancelButtonColor: "#3085d6",
+                  text:
+                    "All cart items will be removed!",
 
-                confirmButtonText: "Yes, Remove",
+                  icon:"warning",
 
-                cancelButtonText: "Cancel",
+                  showCancelButton:true,
 
-              }).then((result) => {
+                  confirmButtonColor:"#ef4444",
 
-                if (result.isConfirmed) {
+                  cancelButtonColor:"#3085d6",
 
-                  dispatch(clearCart());
+                  confirmButtonText:
+                    "Yes, Remove",
 
-                  dispatch(resetCoupon());
+                  cancelButtonText:
+                    "Cancel",
 
-                  toast.error(
-                    "All cart items removed 🗑️"
-                  );
+                })
 
-                }
+                .then((result) => {
 
-              });
+                  if (result.isConfirmed) {
 
-            }}
-          >
-            Clear Cart
-          </button>
+                    dispatch(clearCart());
 
-        </div>
+                    dispatch(resetCoupon());
 
-        {/* ================= EMPTY ================= */}
+                    toast.error(
 
-        {cartItems.length === 0 ? (
+                      "All cart items removed 🗑️",
 
-          <h3 className="empty">
-            Your Cart is Empty
-          </h3>
+                      {
 
-        ) : (
+                        toastId:"clear-cart",
 
-          cartItems.map((item) => (
+                        position:"top-right",
 
-            <div
-              className="cart-card"
-              key={item.id}
+                        autoClose:2000,
+
+                        pauseOnHover:false,
+                      }
+                    );
+                  }
+                });
+              }}
             >
+              Clear Cart
+            </button>
 
-              <img
-                src={item.image}
-                alt={item.name}
-              />
+          </div>
 
-              <div className="cart-details">
+          {/* ================= EMPTY ================= */}
 
-                <h2>{item.name}</h2>
+          {cartItems.length === 0 ? (
 
-                <p className="price">
-                  ₹{item.price}
-                </p>
+            <h3 className="empty">
 
-                {/* ================= QUANTITY ================= */}
+              Your Cart is Empty
 
-                <div className="qty-box">
+            </h3>
 
-                  <button
-                    type="button"
-                    onClick={() =>
-                      dispatch(decrementQty(item.id))
-                    }
-                  >
-                    -
-                  </button>
+          ) : (
 
-                  <span>{item.quantity}</span>
+            cartItems.map((item) => (
 
-                  <button
-                    type="button"
-                    onClick={() =>
-                      dispatch(incrementQty(item.id))
-                    }
-                  >
-                    +
-                  </button>
+              <div
+
+                className="cart-card"
+
+                key={item.id}
+              >
+
+                <img
+
+                  src={item.image}
+
+                  alt={item.name}
+                />
+
+                <div className="cart-details">
+
+                  <h2>{item.name}</h2>
+
+                  <p className="price">
+
+                    ₹{item.price}
+
+                  </p>
+
+                  {/* ================= QUANTITY ================= */}
+
+                  <div className="qty-box">
+
+                    <button
+
+                      type="button"
+
+                      onClick={() =>
+
+                        dispatch(
+                          decrementQty(item.id)
+                        )
+                      }
+                    >
+                      -
+                    </button>
+
+                    <span>
+
+                      {item.quantity}
+
+                    </span>
+
+                    <button
+
+                      type="button"
+
+                      onClick={() =>
+
+                        dispatch(
+                          incrementQty(item.id)
+                        )
+                      }
+                    >
+                      +
+                    </button>
+
+                  </div>
 
                 </div>
 
+                {/* ================= REMOVE ================= */}
+
+                <button
+
+                  type="button"
+
+                  className="remove-btn"
+
+                  onClick={() => {
+
+                    dispatch(
+                      removeCart(item.id)
+                    );
+
+                    toast.error(
+
+                      `${item.name} removed from cart 🗑️`,
+
+                      {
+
+                        toastId:
+                          item.id + "-remove",
+
+                        position:"top-right",
+
+                        autoClose:2000,
+
+                        pauseOnHover:false,
+                      }
+                    );
+                  }}
+                >
+                  Remove
+                </button>
+
               </div>
 
-              <button
-                type="button"
-                className="remove-btn"
-
-                onClick={() =>
-                  dispatch(removeCart(item.id))
-                }
-              >
-                Remove
-              </button>
-
-            </div>
-
-          ))
-
-        )}
-
-      </div>
-
-      {/* ================= RIGHT ================= */}
-
-      <div className="cart-right">
-
-        <h2>Order Summary</h2>
-
-        {/* ================= DISCOUNT BUTTONS ================= */}
-
-        <div className="discount-buttons">
-
-          <button
-            type="button"
-            className={selectedDiscount === 10 ? "active" : ""}
-            onClick={() => setSelectedDiscount(10)}
-          >
-            10%
-          </button>
-
-          <button
-            type="button"
-            className={selectedDiscount === 20 ? "active" : ""}
-            onClick={() => setSelectedDiscount(20)}
-          >
-            20%
-          </button>
-
-          <button
-            type="button"
-            className={selectedDiscount === 30 ? "active" : ""}
-            onClick={() => setSelectedDiscount(30)}
-          >
-            30%
-          </button>
-
-        </div>
-
-        {/* ================= COUPON ================= */}
-
-        <div className="coupon-box">
-
-          <input
-            type="text"
-            placeholder="Enter Coupon"
-            value={cupon}
-            onChange={(e) => setCupon(e.target.value)}
-            className="coupon-input"
-          />
-
-          <button
-            type="button"
-            className="apply-btn"
-            disabled={applied}
-            onClick={() => dispatch(applyCupon(cupon))}
-          >
-            Apply Coupon
-          </button>
-
-        </div>
-
-        {/* ================= MESSAGE ================= */}
-
-        {message && (
-          <h3
-            style={{
-              color: applied ? "green" : "red",
-            }}
-          >
-            {message}
-          </h3>
-        )}
-
-        {/* ================= SUMMARY ================= */}
-
-        <div className="summary-box">
-
-          <div className="row">
-            <span>Total Price</span>
-            <span>₹{totalPrice.toFixed(2)}</span>
-          </div>
-
-          <div className="row discount">
-            <span>Discount ({selectedDiscount}%)</span>
-            <span>- ₹{normalDiscount.toFixed(2)}</span>
-          </div>
-
-          <div className="row">
-            <span>After Discount</span>
-            <span>₹{afterDiscount.toFixed(2)}</span>
-          </div>
-
-          {applied && (
-            <>
-              <div className="row">
-                <span>Coupon</span>
-                <span>{code}</span>
-              </div>
-
-              <div className="row discount">
-                <span>Coupon Discount ({discount}%)</span>
-                <span>- ₹{couponDiscountAmount.toFixed(2)}</span>
-              </div>
-            </>
+            ))
           )}
 
-          <div className="row">
-            <span>Tax (18%)</span>
-            <span>₹{tax.toFixed(2)}</span>
+        </div>
+
+        {/* ================= RIGHT ================= */}
+
+        <div className="cart-right">
+
+          <h2>Order Summary</h2>
+
+          {/* ================= DISCOUNT ================= */}
+
+          <div className="discount-buttons">
+
+            <button
+
+              type="button"
+
+              className={
+                selectedDiscount === 10
+                  ? "active"
+                  : ""
+              }
+
+              onClick={() =>
+                setSelectedDiscount(10)
+              }
+            >
+              10%
+            </button>
+
+            <button
+
+              type="button"
+
+              className={
+                selectedDiscount === 20
+                  ? "active"
+                  : ""
+              }
+
+              onClick={() =>
+                setSelectedDiscount(20)
+              }
+            >
+              20%
+            </button>
+
+            <button
+
+              type="button"
+
+              className={
+                selectedDiscount === 30
+                  ? "active"
+                  : ""
+              }
+
+              onClick={() =>
+                setSelectedDiscount(30)
+              }
+            >
+              30%
+            </button>
+
           </div>
 
-          <div className="row">
-            <span>Delivery Fee</span>
-            <span>₹{deliveryFee}</span>
-          </div>
+          {/* ================= COUPON ================= */}
 
-          <hr />
-
-          <div className="row total">
-            <span>Payable Amount</span>
-            <span>₹{finalTotal.toFixed(2)}</span>
-          </div>
-
-          {/* EMAIL */}
-          <div className="email-box">
-            <label>📧 Enter Email</label>
+          <div className="coupon-box">
 
             <input
-              type="email"
-              value={customerEmail}
+
+              type="text"
+
+              placeholder="Enter Coupon"
+
+              value={cupon}
+
               onChange={(e) =>
-                setCustomerEmail(e.target.value)
+                setCupon(e.target.value)
               }
-              placeholder="you@gmail.com"
-              className="email-input"
+
+              className="coupon-input"
             />
+
+            <button
+
+              type="button"
+
+              className="apply-btn"
+
+              disabled={applied}
+
+              onClick={() =>
+                dispatch(
+                  applyCupon(cupon)
+                )
+              }
+            >
+              Apply Coupon
+            </button>
+
           </div>
 
-          {/* PAYMENT */}
-          <div className="payment-method">
-            <h3>Select Payment Method 💳</h3>
+          {/* ================= MESSAGE ================= */}
 
-            <div className="payment-buttons">
-              <button onClick={() => setPaymentMethod("qr")}>
-                📱 QR Code
-              </button>
+          {message && (
 
-              <button onClick={() => setPaymentMethod("card")}>
-                💳 Card
-              </button>
+            <h3
+              style={{
+                color:
+                  applied
+                    ? "green"
+                    : "red"
+              }}
+            >
+              {message}
+            </h3>
+          )}
+
+          {/* ================= SUMMARY ================= */}
+
+          <div className="summary-box">
+
+            <div className="row">
+
+              <span>Total Price</span>
+
+              <span>
+                ₹{totalPrice.toFixed(2)}
+              </span>
+
             </div>
-          </div>
 
-          {/* QR */}
-          {paymentMethod === "qr" && (
-            <div className="qr-section">
-              <h3>
-                Scan QR To Pay ₹{finalTotal.toFixed(2)}
-              </h3>
+            <div className="row discount">
 
-              <QRCode
-                value={`upi://pay?pa=8374075410-2@ybl&pn=RaghuStore&am=${finalTotal.toFixed(
-                  2
-                )}&cu=INR`}
-                size={220}
+              <span>
+                Discount ({selectedDiscount}%)
+              </span>
+
+              <span>
+                - ₹{normalDiscount.toFixed(2)}
+              </span>
+
+            </div>
+
+            <div className="row">
+
+              <span>After Discount</span>
+
+              <span>
+                ₹{afterDiscount.toFixed(2)}
+              </span>
+
+            </div>
+
+            {applied && (
+
+              <>
+
+                <div className="row">
+
+                  <span>Coupon</span>
+
+                  <span>{code}</span>
+
+                </div>
+
+                <div className="row discount">
+
+                  <span>
+                    Coupon Discount ({discount}%)
+                  </span>
+
+                  <span>
+                    - ₹{couponDiscountAmount.toFixed(2)}
+                  </span>
+
+                </div>
+
+              </>
+
+            )}
+
+            <div className="row">
+
+              <span>Tax (18%)</span>
+
+              <span>
+                ₹{tax.toFixed(2)}
+              </span>
+
+            </div>
+
+            <div className="row">
+
+              <span>Delivery Fee</span>
+
+              <span>
+                ₹{deliveryFee}
+              </span>
+
+            </div>
+
+            <hr />
+
+            <div className="row total">
+
+              <span>Payable Amount</span>
+
+              <span>
+                ₹{finalTotal.toFixed(2)}
+              </span>
+
+            </div>
+
+            {/* ================= EMAIL ================= */}
+
+            <div className="email-box">
+
+              <label>
+                📧 Enter Email
+              </label>
+
+              <input
+
+                type="email"
+
+                value={customerEmail}
+
+                onChange={(e) =>
+
+                  setCustomerEmail(
+                    e.target.value
+                  )
+                }
+
+                placeholder="you@gmail.com"
+
+                className="email-input"
               />
 
-              <p>UPI ID: 8374075410-2@ybl</p>
             </div>
-          )}
 
-          {/* CARD */}
-          {paymentMethod === "card" && (
-            <div className="card-payment">
-              <h3>💳 Card Payment Coming Soon</h3>
+            {/* ================= PAYMENT ================= */}
+
+            <div className="payment-method">
+
+              <h3>
+                Select Payment Method 💳
+              </h3>
+
+              <div className="payment-buttons">
+
+                <button
+                  onClick={() =>
+                    setPaymentMethod("qr")
+                  }
+                >
+                  📱 QR Code
+                </button>
+
+                <button
+                  onClick={() =>
+                    setPaymentMethod("card")
+                  }
+                >
+                  💳 Card
+                </button>
+
+              </div>
+
             </div>
-          )}
 
-          {/* REMOVE COUPON */}
-          {applied && (
+            {/* ================= QR ================= */}
+
+            {paymentMethod === "qr" && (
+
+              <div className="qr-section">
+
+                <h3>
+
+                  Scan QR To Pay ₹
+                  {finalTotal.toFixed(2)}
+
+                </h3>
+
+                <QRCode
+
+                  value={`upi://pay?pa=8374075410-2@ybl&pn=RaghuStore&am=${finalTotal.toFixed(
+                    2
+                  )}&cu=INR`}
+
+                  size={220}
+                />
+
+                <p>
+                  UPI ID:
+                  8374075410-2@ybl
+                </p>
+
+              </div>
+            )}
+
+            {/* ================= CARD ================= */}
+
+            {paymentMethod === "card" && (
+
+              <div className="card-payment">
+
+                <h3>
+                  💳 Card Payment Coming Soon
+                </h3>
+
+              </div>
+            )}
+
+            {/* ================= REMOVE COUPON ================= */}
+
+            {applied && (
+
+              <button
+
+                className="remove-coupon-btn"
+
+                onClick={() =>
+                  dispatch(resetCoupon())
+                }
+              >
+                Remove Coupon
+              </button>
+            )}
+
+            {/* ================= CHECKOUT ================= */}
+
             <button
-              className="remove-coupon-btn"
-              onClick={() => dispatch(resetCoupon())}
-            >
-              Remove Coupon
-            </button>
-          )}
 
-          {/* CHECKOUT */}
-          <button
-            className="checkout-btn"
-            onClick={handleCheckout}
-          >
-            Checkout & Send Email 📧
-          </button>
+              className="checkout-btn"
+
+              onClick={handleCheckout}
+            >
+              Checkout & Send Email 📧
+            </button>
+
+          </div>
 
         </div>
+
       </div>
-    </div>
+
+    </>
+
   );
 }
 

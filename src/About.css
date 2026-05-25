@@ -1,0 +1,169 @@
+.about-page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 70px 8%;
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(0,0,0,0.82), rgba(0,0,0,0.82)),
+    url("/image/bg 2 image.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* DARK OVERLAY GLOW */
+
+.about-page::before {
+  content: "";
+  position: absolute;
+  top: -120px;
+  left: -120px;
+  width: 350px;
+  height: 350px;
+  background: rgba(255, 69, 0, 0.15);
+  border-radius: 50%;
+  filter: blur(100px);
+}
+
+.about-page::after {
+  content: "";
+  position: absolute;
+  bottom: -120px;
+  right: -120px;
+  width: 350px;
+  height: 350px;
+  background: rgba(255, 140, 0, 0.12);
+  border-radius: 50%;
+  filter: blur(100px);
+}
+
+/* ================= CONTAINER ================= */
+
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
+}
+
+/* ================= LEFT IMAGE ================= */
+
+.about-left {
+  flex: 1;
+}
+
+.about-left img {
+  width: 100%;
+  border-radius: 30px;
+  object-fit: cover;
+  border: 4px solid rgba(255,255,255,0.08);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+  transition: 0.4s ease;
+}
+
+.about-left img:hover {
+  transform: scale(1.02);
+}
+
+/* ================= RIGHT CONTENT ================= */
+
+.about-right {
+  flex: 1;
+}
+
+.about-right h1 {
+  font-size: 52px;
+  color: white;
+  margin-bottom: 25px;
+  line-height: 1.2;
+}
+
+.about-right span {
+  color: #ff6b00;
+  font-weight: bold;
+}
+
+.about-right p {
+  font-size: 18px;
+  line-height: 1.9;
+  color: #d8d8d8;
+  margin-bottom: 20px;
+}
+
+/* ================= FEATURES ================= */
+
+.about-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+  margin-top: 40px;
+}
+
+/* ================= FEATURE BOX ================= */
+
+.feature-box {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 28px;
+  border-radius: 22px;
+  transition: 0.35s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.feature-box:hover {
+  transform: translateY(-8px);
+  background: rgba(255,255,255,0.12);
+}
+
+.feature-box h2 {
+  margin-bottom: 15px;
+  color: #ff6b00;
+  font-size: 24px;
+}
+
+.feature-box p {
+  font-size: 16px;
+  color: #e2e2e2;
+  margin: 0;
+  line-height: 1.7;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+
+  .about-page {
+    padding: 45px 20px;
+    background-attachment: scroll;
+  }
+
+  .about-container {
+    flex-direction: column;
+    gap: 35px;
+  }
+
+  .about-right h1 {
+    font-size: 36px;
+    text-align: center;
+  }
+
+  .about-right p {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .about-features {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-box {
+    padding: 22px;
+  }
+
+}

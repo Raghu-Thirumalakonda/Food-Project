@@ -1,285 +1,606 @@
-/* ===== PAGE LAYOUT ===== */
+/* =========================
+   GOOGLE FONT
+========================= */
 
-.juice-page-wrapper {
-  display: flex;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #fff8f0, #ffe9d6);
-  font-family: Arial, sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+/* =========================
+   GLOBAL
+========================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Poppins",sans-serif;
 }
 
-/* ===== MAIN CONTENT ===== */
+body{
 
-.juice-main-section {
-  flex: 1;
-  padding: 30px;
-  margin-left: 250px;
-  width: calc(100% - 250px);
-  box-sizing: border-box;
-  overflow-x: hidden;
+  background:black;
+  overflow-x:hidden;
 }
 
-/* ===== TITLE ===== */
+/* =========================
+   PAGE WRAPPER
+========================= */
 
-.juice-heading-title {
-  text-align: center;
-  font-size: 32px;
-  margin-bottom: 25px;
-  color: #ff6f00;
-  font-weight: bold;
+.juice-page-wrapper{
+
+  min-height:100vh;
+
+  display:flex;
+
+  background:
+
+    linear-gradient(
+      rgba(0,0,0,0.82),
+      rgba(0,0,0,0.88)
+    ),
+
+    url("/image/bg image.jpg");
+
+  background-size:cover;
+
+  background-position:center;
+
+  background-attachment:fixed;
+
+  padding:20px;
 }
 
-/* ===== GRID ===== */
+/* =========================
+   MAIN SECTION
+========================= */
 
-.juice-drink-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 20px;
-  width: 100%;
-  box-sizing: border-box;
+.juice-main-section{
+
+  flex:1;
+
+  padding:20px 30px;
+
+  margin-left:240px;
+
+  width:calc(100% - 240px);
+
+  overflow:hidden;
 }
 
-/* ===== CARD ===== */
+/* =========================
+   HEADING
+========================= */
 
-.juice-drink-card {
-  background: #ffffff;
-  border-radius: 15px;
-  padding: 14px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  transition: 0.3s ease;
-  width: 100%;
-  box-sizing: border-box;
+.juice-heading-title{
+
+  text-align:center;
+
+  font-size:4rem;
+
+  font-weight:800;
+
+  margin-bottom:45px;
+
+  color:white;
+
+  text-shadow:
+    0 0 25px rgba(255,140,0,0.7);
 }
 
-.juice-drink-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+.juice-heading-title span{
+
+  background:linear-gradient(
+    135deg,
+    #FF94B2,
+    #F24455,
+    #E5203A,
+    #660F24
+  );
+
+  -webkit-background-clip:text;
+
+  -webkit-text-fill-color:transparent;
 }
 
-/* ===== IMAGE ===== */
+/* =========================
+   GRID
+========================= */
 
-.juice-drink-image {
-  width: 100%;
-  height: 170px;
-  object-fit: cover;
-  border-radius: 12px;
+.juice-drink-grid{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(auto-fit,minmax(320px,1fr));
+
+  gap:35px;
+
+  width:100%;
+
+  overflow:hidden;
 }
 
-/* ===== NAME ===== */
+/* =========================
+   CARD
+========================= */
 
-.juice-drink-name {
-  margin-top: 10px;
-  margin-bottom: 6px;
-  font-size: 18px;
-  font-weight: 700;
-  color: #333;
-  line-height: 1.2;
+.juice-drink-card{
+
+  position:relative;
+
+  min-width:0;
+
+  border-radius:30px;
+
+  overflow:hidden;
+
+  background:
+    rgba(255,255,255,0.07);
+
+  backdrop-filter:blur(16px);
+
+  border:
+    1px solid rgba(255,255,255,0.12);
+
+  box-shadow:
+    0 0 30px rgba(255,140,0,0.15);
+
+  transition:0.4s ease;
+
+  padding-bottom:25px;
 }
 
-/* ===== PRICE ===== */
+.juice-drink-card:hover{
 
-.juice-drink-price {
-  font-size: 17px;
-  font-weight: bold;
-  color: #ef6c00;
-  margin-bottom: 10px;
+  transform:
+    translateY(-12px)
+    scale(1.02);
+
+  box-shadow:
+    0 0 40px rgba(255,140,0,0.5);
 }
 
-/* ===== BUTTON ===== */
+/* =========================
+   IMAGE
+========================= */
 
-.juice-cart-button {
- 
-  background: #ff2d55;
-  color: white;
+.juice-drink-image{
 
-  border: none;
-  padding: 9px 16px;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: 0.3s ease;
-  font-weight: bold;
-  display: block;
-  margin: 0 auto;
+  width:100%;
+
+  height:250px;
+
+  object-fit:cover;
+
+  transition:0.5s ease;
 }
 
-.juice-description {
-  color: #666;
-  font-size: 0.92rem;
-  line-height: 1.5;
-  margin: 8px 0;
-  text-align: center;
-  min-height: 45px;
+.juice-drink-card:hover
+.juice-drink-image{
+
+  transform:scale(1.08);
 }
 
-.juice-cart-button:hover {
-  transform: scale(1.05);
+/* =========================
+   BADGES
+========================= */
+
+.juice-badge-wrapper{
+
+  position:absolute;
+
+  top:18px;
+
+  left:18px;
+
+  right:18px;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  z-index:5;
 }
 
-/* ===== PAGINATION ===== */
+.juice-type-badge{
 
-.juice-pagination-wrapper {
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
-  gap: 8px;
-  flex-wrap: wrap;
+  background:
+    linear-gradient(
+      135deg,
+      #00c853,
+      #00e676
+    );
+
+  color:white;
+
+  padding:10px 18px;
+
+  border-radius:30px;
+
+  font-size:0.9rem;
+
+  font-weight:700;
+
+  box-shadow:
+    0 0 15px rgba(0,230,118,0.5);
 }
 
-.juice-pagination-btn {
-  padding: 8px 14px;
-  border: none;
-  border-radius: 8px;
-  background: #ececec;
-  cursor: pointer;
-  transition: 0.3s ease;
-  font-weight: bold;
+.juice-off-badge{
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff0066,
+      #ff5e00
+    );
+
+  color:white;
+
+  padding:10px 18px;
+
+  border-radius:30px;
+
+  font-size:0.9rem;
+
+  font-weight:700;
+
+  box-shadow:
+    0 0 15px rgba(255,94,0,0.5);
 }
 
-.juice-pagination-btn:hover:not(:disabled) {
-  
-  background: #ff2d55;
-  color: white;
+/* =========================
+   TITLE + RATING
+========================= */
 
+.juice-title-rating{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:12px;
+
+  padding:0 18px;
+
+  margin-top:18px;
+
+  margin-bottom:10px;
 }
 
-.active-juice-page {
-  
-  background: #ff2d55;
-  color: white;
+/* =========================
+   FOOD NAME
+========================= */
 
+.juice-drink-name{
+
+  color:white;
+
+  font-size:1.7rem;
+
+  font-weight:700;
+
+  margin:0;
+
+  line-height:1.3;
+
+  text-align:left;
+
+  flex:1;
 }
 
-.juice-pagination-btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+/* =========================
+   RATING BADGE
+========================= */
+
+.juice-rating-badge{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  min-width:82px;
+
+  height:42px;
+
+  padding:0 14px;
+
+  border-radius:50px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffb800,
+      #ff7b00
+    );
+
+  color:white;
+
+  font-size:0.95rem;
+
+  font-weight:700;
+
+  letter-spacing:0.5px;
+
+  border:
+    1px solid rgba(255,255,255,0.15);
+
+  backdrop-filter:blur(10px);
+
+  box-shadow:
+    0 0 12px rgba(255,184,0,0.5),
+    0 0 25px rgba(255,123,0,0.3);
+
+  transition:0.35s ease;
+
+  cursor:pointer;
 }
 
-/* ===== TABLET ===== */
+/* =========================
+   RATING HOVER
+========================= */
 
-@media (max-width: 1024px) {
+.juice-drink-card:hover
+.juice-rating-badge{
 
-  .juice-drink-grid {
-    grid-template-columns: repeat(3, 1fr);
+  transform:
+    scale(1.08);
+
+  box-shadow:
+    0 0 18px rgba(255,184,0,0.8),
+    0 0 35px rgba(255,123,0,0.5);
+}
+
+/* =========================
+   DESCRIPTION
+========================= */
+
+.juice-drink-description{
+
+  text-align:center;
+
+  color:#d9d9d9;
+
+  font-size:1rem;
+
+  line-height:1.7;
+
+  padding:0 20px;
+
+  min-height:65px;
+
+  margin-top:8px;
+}
+
+/* =========================
+   PRICE
+========================= */
+
+.juice-drink-price{
+
+  text-align:center;
+
+  color:#00e676;
+
+  font-size:2rem;
+
+  font-weight:800;
+
+  margin-top:20px;
+
+  margin-bottom:25px;
+
+  text-shadow:
+    0 0 15px rgba(0,230,118,0.5);
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.juice-cart-button{
+
+  width:85%;
+
+  display:block;
+
+  margin:auto;
+
+  padding:16px;
+
+  border:none;
+
+  border-radius:18px;
+
+  font-size:1.1rem;
+
+  font-weight:700;
+
+  cursor:pointer;
+
+  color:white;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff8c00,
+      #ff5e00
+    );
+
+  transition:0.4s ease;
+
+  box-shadow:
+    0 0 25px rgba(255,140,0,0.3);
+}
+
+.juice-cart-button:hover{
+
+  transform:scale(1.05);
+
+  box-shadow:
+    0 0 35px rgba(255,140,0,0.7);
+}
+
+/* =========================
+   PAGINATION
+========================= */
+
+.juice-pagination-wrapper{
+
+  margin-top:50px;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  flex-wrap:wrap;
+
+  gap:15px;
+}
+
+.juice-pagination-btn{
+
+  width:55px;
+
+  height:55px;
+
+  border:none;
+
+  border-radius:16px;
+
+  background:
+    rgba(255,255,255,0.08);
+
+  color:white;
+
+  font-size:1rem;
+
+  font-weight:700;
+
+  cursor:pointer;
+
+  transition:0.3s ease;
+
+  backdrop-filter:blur(10px);
+
+  border:
+    1px solid rgba(255,255,255,0.1);
+}
+
+.juice-pagination-btn:hover{
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff8c00,
+      #ff5e00
+    );
+
+  transform:translateY(-5px);
+
+  box-shadow:
+    0 0 20px rgba(255,140,0,0.5);
+}
+
+.active-juice-page{
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff8c00,
+      #ff5e00
+    );
+
+  box-shadow:
+    0 0 20px rgba(255,140,0,0.6);
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media(max-width:1200px){
+
+  .juice-drink-grid{
+
+    grid-template-columns:
+      repeat(auto-fit,minmax(280px,1fr));
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:992px){
+
+  .juice-page-wrapper{
+
+    flex-direction:column;
   }
 
-}
+  .juice-main-section{
 
-/* ===== MOBILE ===== */
+    margin-left:0;
 
-@media (max-width: 768px) {
+    width:100%;
 
-  .juice-main-section {
-    margin-left: 0;
-    width: 100%;
-    padding: 15px;
+    padding:20px 10px;
   }
 
-  .juice-drink-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .juice-drink-grid{
+
+    grid-template-columns:
+      repeat(auto-fit,minmax(260px,1fr));
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media(max-width:600px){
+
+  .juice-heading-title{
+
+    font-size:2.5rem;
   }
 
-  .juice-heading-title {
-    font-size: 26px;
+  .juice-drink-grid{
+
+    grid-template-columns:1fr;
   }
 
-}
+  .juice-drink-image{
 
-/* ===== SMALL MOBILE ===== */
-
-@media (max-width: 480px) {
-
-  .juice-drink-grid {
-    grid-template-columns: repeat(1, 1fr);
+    height:220px;
   }
 
-  .juice-drink-card {
-    padding: 12px;
+  .juice-drink-name{
+
+    font-size:1.3rem;
   }
 
-  .juice-drink-image {
-    height: 190px;
+  .juice-drink-price{
+
+    font-size:1.6rem;
   }
 
-}
+  .juice-rating-badge{
 
+    min-width:72px;
 
-/* ================= PAGE ================= */
+    height:38px;
 
-.juice-page-wrapper {
-  display: flex;
-  min-height: 100vh;
-}
+    font-size:0.8rem;
+  }
 
-.juice-main-section {
-  flex: 1;
-  padding: 30px;
-  margin-left: 250px;
-}
+  .juice-cart-button{
 
-/* GRID */
-
-.juice-drink-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
-
-/* CARD */
-
-.juice-drink-card {
-  background: #fff;
-  border-radius: 18px;
-  padding: 15px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-/* IMAGE WRAPPER (IMPORTANT) */
-
-.juice-img-wrapper {
-  position: relative;
-}
-
-/* IMAGE */
-
-.juice-drink-image {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 14px;
-}
-
-/* ================= BADGES ON IMAGE ================= */
-
-.juice-badge-wrapper {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  right: 10px;
-
-  display: flex;
-  justify-content: space-between;
-}
-
-/* JUICE BADGE */
-
-.juice-type-badge {
-  background: #1e88e5;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 20px;
-  font-size: 11px;
-  font-weight: bold;
-}
-
-/* OFF BADGE */
-
-.juice-off-badge {
-  background: #ff2d55;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 20px;
-  font-size: 11px;
-  font-weight: bold;
+    width:90%;
+  }
 }
