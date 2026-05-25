@@ -502,7 +502,7 @@ function App() {
             />
 
             <Route
-              path="/contact"
+              path="/Contact"
               element={<Contact />}
             />
 
