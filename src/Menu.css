@@ -12,6 +12,14 @@
 }
 
 /* =========================
+   SMOOTH SCROLL
+========================= */
+
+html{
+  scroll-behavior:smooth;
+}
+
+/* =========================
    MENU PAGE
 ========================= */
 
@@ -37,7 +45,6 @@
     ),
 
     url("/image/bg 2 image.jpg");
-
 
   background-size:cover;
 
@@ -141,6 +148,10 @@
 
   border:
     1px solid rgba(255,255,255,0.08);
+
+  position:relative;
+
+  overflow:hidden;
 }
 
 /* HOVER */
@@ -174,6 +185,32 @@
 
   box-shadow:
     0 10px 25px rgba(255,152,0,0.35);
+}
+
+/* GLOW */
+
+.sidebar-btn::before{
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.10),
+      transparent
+    );
+
+  opacity:0;
+
+  transition:0.35s;
+}
+
+.sidebar-btn:hover::before,
+.sidebar-btn.active::before{
+  opacity:1;
 }
 
 /* =========================
@@ -220,6 +257,28 @@
 .menu-heading span{
 
   color:orange;
+}
+
+/* =========================
+   SECTION
+========================= */
+
+.menu-section{
+
+  margin-bottom:70px;
+
+  scroll-margin-top:120px;
+}
+
+.section-title{
+
+  font-size:42px;
+
+  margin-bottom:32px;
+
+  color:white;
+
+  font-weight:800;
 }
 
 /* =========================
@@ -436,9 +495,39 @@
     padding:110px 18px 30px;
   }
 
+  .menu-sidebar{
+
+    position:sticky;
+
+    top:90px;
+
+    z-index:100;
+
+    padding:24px 18px;
+  }
+
+  .sidebar-title{
+
+    margin-bottom:28px;
+  }
+
+  .sidebar-btn{
+
+    height:60px;
+
+    font-size:18px;
+
+    margin-bottom:16px;
+  }
+
   .menu-heading{
 
     font-size:36px;
+  }
+
+  .section-title{
+
+    font-size:30px;
   }
 
   .menu-grid{
@@ -454,13 +543,6 @@
   .menu-card h2{
 
     font-size:24px;
-  }
-
-  .sidebar-btn{
-
-    height:60px;
-
-    font-size:18px;
   }
 
   .menu-content{

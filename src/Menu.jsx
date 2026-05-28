@@ -1,10 +1,11 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import "./Menu.css";
+import React, {
+  useRef,
+  useState
+} from "react";
 
-/* =========================
-   VEG IMAGES
-========================= */
+import { Link } from "react-router-dom";
+
+import "./Menu.css";
 
 /* =========================
    VEG IMAGES
@@ -15,14 +16,17 @@ const vegThaliImg =
 
 const paneerBiryaniImg =
   "/image/paneerBiryani.jpg";
+
 const vegBurgerImg =
   "/image/burger.png";
+
 /* =========================
    NONVEG IMAGES
 ========================= */
 
 const chickenBiryaniImg =
   "/Nonveg/Chicken Biryani.jpg";
+
 const chickenGrillImg =
   "/Nonveg/chickenGrill.jpg";
 
@@ -48,6 +52,7 @@ const watermelonJuiceImg =
 
 const chocolateCakeImg =
   "/image/Chocolate Cake.jpg";
+
 const iceCreamImg =
   "/image/icecream.jpg";
 
@@ -60,8 +65,66 @@ function Menu() {
      CATEGORY STATE
   ========================= */
 
-  const [activeCategory, setActiveCategory] =
+  const [activeCategory,setActiveCategory] =
     useState("veg");
+
+  /* =========================
+     MENU CONTENT REF
+  ========================= */
+
+  const menuContentRef =
+    useRef(null);
+
+  /* =========================
+     MOBILE SMOOTH SCROLL
+  ========================= */
+
+  const scrollToTopCards = () => {
+
+    if(menuContentRef.current){
+
+      const isMobile =
+        window.innerWidth <= 768;
+
+      const yOffset =
+        isMobile ? -90 : -110;
+
+      const y =
+
+        menuContentRef.current
+          .getBoundingClientRect().top
+
+        +
+
+        window.pageYOffset
+
+        +
+
+        yOffset;
+
+      window.scrollTo({
+
+        top:y,
+
+        behavior:"smooth"
+      });
+    }
+  };
+
+  /* =========================
+     HANDLE CATEGORY CLICK
+  ========================= */
+
+  const handleCategory = (category) => {
+
+    setActiveCategory(category);
+
+    setTimeout(()=>{
+
+      scrollToTopCards();
+
+    },100);
+  };
 
   /* =========================
      FOOD DATA
@@ -69,124 +132,124 @@ function Menu() {
 
   const foodData = {
 
-    veg: [
+    veg:[
 
       {
-        id: 1,
-        name: "Veg Thali",
-        price: 199,
-        image: vegThaliImg,
+        id:1,
+        name:"Veg Thali",
+        price:199,
+        image:vegThaliImg,
         description:
           "Healthy Indian veg meals with curry and rice."
       },
 
       {
-        id: 2,
-        name: "Paneer Biryani",
-        price: 249,
-        image: paneerBiryaniImg,
+        id:2,
+        name:"Paneer Biryani",
+        price:249,
+        image:paneerBiryaniImg,
         description:
           "Spicy paneer biryani served with raita."
       },
 
       {
-        id: 3,
-        name: "Veg Burger",
-        price: 149,
-        image: vegBurgerImg,
+        id:3,
+        name:"Veg Burger",
+        price:149,
+        image:vegBurgerImg,
         description:
           "Loaded crispy veg burger with cheese."
       }
 
     ],
 
-    nonveg: [
+    nonveg:[
 
       {
-        id: 1,
-        name: "Chicken Biryani",
-        price: 299,
-        image: chickenBiryaniImg,
+        id:1,
+        name:"Chicken Biryani",
+        price:299,
+        image:chickenBiryaniImg,
         description:
           "Hyderabad dum biryani with juicy chicken."
       },
 
       {
-        id: 2,
-        name: "Chicken Grill",
-        price: 349,
-        image: chickenGrillImg,
+        id:2,
+        name:"Chicken Grill",
+        price:349,
+        image:chickenGrillImg,
         description:
           "Smoky grilled chicken with spicy masala."
       },
 
       {
-        id: 3,
-        name: "Mutton Curry",
-        price: 399,
-        image: muttonCurryImg,
+        id:3,
+        name:"Mutton Curry",
+        price:399,
+        image:muttonCurryImg,
         description:
           "Traditional spicy mutton curry."
       }
 
     ],
 
-    juices: [
+    juices:[
 
       {
-        id: 1,
-        name: "Orange Juice",
-        price: 99,
-        image: orangeJuiceImg,
+        id:1,
+        name:"Orange Juice",
+        price:99,
+        image:orangeJuiceImg,
         description:
           "Fresh orange juice with ice."
       },
 
       {
-        id: 2,
-        name: "Mango Shake",
-        price: 129,
-        image: mangoShakeImg,
+        id:2,
+        name:"Mango Shake",
+        price:129,
+        image:mangoShakeImg,
         description:
           "Creamy mango milkshake."
       },
 
       {
-        id: 3,
-        name: "Watermelon Juice",
-        price: 89,
-        image: watermelonJuiceImg,
+        id:3,
+        name:"Watermelon Juice",
+        price:89,
+        image:watermelonJuiceImg,
         description:
           "Refreshing watermelon fresh juice."
       }
 
     ],
 
-    desserts: [
+    desserts:[
 
       {
-        id: 1,
-        name: "Chocolate Cake",
-        price: 149,
-        image: chocolateCakeImg,
+        id:1,
+        name:"Chocolate Cake",
+        price:149,
+        image:chocolateCakeImg,
         description:
           "Rich chocolate cream cake."
       },
 
       {
-        id: 2,
-        name: "Ice Cream",
-        price: 119,
-        image: iceCreamImg,
+        id:2,
+        name:"Ice Cream",
+        price:119,
+        image:iceCreamImg,
         description:
           "Vanilla ice cream with toppings."
       },
 
       {
-        id: 3,
-        name: "Brownie",
-        price: 159,
-        image: brownieImg,
+        id:3,
+        name:"Brownie",
+        price:159,
+        image:brownieImg,
         description:
           "Hot chocolate brownie."
       }
@@ -218,13 +281,15 @@ function Menu() {
         {/* VEG */}
 
         <button
+
           className={
             activeCategory === "veg"
               ? "sidebar-btn active"
               : "sidebar-btn"
           }
-          onClick={() =>
-            setActiveCategory("veg")
+
+          onClick={()=>
+            handleCategory("veg")
           }
         >
           🥗 Veg
@@ -233,13 +298,15 @@ function Menu() {
         {/* NONVEG */}
 
         <button
+
           className={
             activeCategory === "nonveg"
               ? "sidebar-btn active"
               : "sidebar-btn"
           }
-          onClick={() =>
-            setActiveCategory("nonveg")
+
+          onClick={()=>
+            handleCategory("nonveg")
           }
         >
           🍗 Non-Veg
@@ -248,13 +315,15 @@ function Menu() {
         {/* JUICES */}
 
         <button
+
           className={
             activeCategory === "juices"
               ? "sidebar-btn active"
               : "sidebar-btn"
           }
-          onClick={() =>
-            setActiveCategory("juices")
+
+          onClick={()=>
+            handleCategory("juices")
           }
         >
           🥤 Juices
@@ -263,13 +332,15 @@ function Menu() {
         {/* DESSERTS */}
 
         <button
+
           className={
             activeCategory === "desserts"
               ? "sidebar-btn active"
               : "sidebar-btn"
           }
-          onClick={() =>
-            setActiveCategory("desserts")
+
+          onClick={()=>
+            handleCategory("desserts")
           }
         >
           🍰 Desserts
@@ -281,7 +352,10 @@ function Menu() {
           MENU CONTENT
       ========================= */}
 
-      <div className="menu-content">
+      <div
+        ref={menuContentRef}
+        className="menu-content"
+      >
 
         <h1 className="menu-heading">
 
@@ -296,10 +370,12 @@ function Menu() {
 
         <div className="menu-grid">
 
-          {currentItems.map((item) => (
+          {currentItems.map((item)=>(
 
             <div
+
               key={item.id}
+
               className="menu-card"
             >
 

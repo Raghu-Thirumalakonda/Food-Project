@@ -30,7 +30,7 @@ body{
 
   min-height:100vh;
 
-  padding:90px 8%;
+  padding:100px 7% 70px;
 
   position:relative;
 
@@ -53,119 +53,6 @@ body{
 }
 
 /* =========================
-   HEADER
-========================= */
-
-.food-contact-header{
-
-  width:100%;
-
-  position:relative;
-
-  z-index:2;
-
-  margin-bottom:70px;
-
-  text-align:center;
-}
-
-/* =========================
-   CONTACT TITLE
-========================= */
-
-.mobile-contact-title{
-
-  width:100%;
-
-  display:flex;
-
-  flex-direction:column;
-
-  align-items:center;
-
-  justify-content:center;
-
-  text-align:center;
-
-  margin-bottom:20px;
-}
-
-/* =========================
-   FIRST LINE
-========================= */
-
-.title-line-1{
-
-  width:100%;
-
-  font-size:72px;
-
-  font-weight:800;
-
-  line-height:1;
-
-  color:white;
-
-  letter-spacing:1px;
-
-  text-align:center;
-
-  text-shadow:
-  0 0 18px rgba(255,120,0,0.5);
-}
-
-/* =========================
-   SECOND LINE
-========================= */
-
-.title-line-2{
-
-  width:100%;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  gap:10px;
-
-  font-size:72px;
-
-  font-weight:800;
-
-  line-height:1;
-
-  color:white;
-
-  letter-spacing:1px;
-
-  text-align:center;
-
-  text-shadow:
-  0 0 18px rgba(255,120,0,0.5);
-}
-
-/* =========================
-   SUBTITLE
-========================= */
-
-.food-contact-header p{
-
-  color:#d1d5db;
-
-  font-size:22px;
-
-  line-height:1.8;
-
-  max-width:700px;
-
-  margin:auto;
-
-  text-align:center;
-}
-
-/* =========================
    MAIN CONTAINER
 ========================= */
 
@@ -173,15 +60,18 @@ body{
 
   width:100%;
 
-  display:flex;
+  max-width:1450px;
 
-  justify-content:space-between;
+  margin:auto;
+
+  display:grid;
+
+  grid-template-columns:
+  1fr 1fr;
+
+  gap:70px;
 
   align-items:flex-start;
-
-  gap:60px;
-
-  flex-wrap:wrap;
 
   position:relative;
 
@@ -194,29 +84,65 @@ body{
 
 .food-contact-left{
 
-  flex:1;
-
-  min-width:320px;
+  width:100%;
 }
+
+/* =========================
+   LEFT TITLE
+========================= */
 
 .food-contact-left h2{
 
   color:white;
 
-  font-size:48px;
+  font-size:64px;
+
+  font-weight:800;
+
+  line-height:1.1;
 
   margin-bottom:20px;
+
+  display:flex;
+
+  align-items:center;
+
+  gap:18px;
+
+  text-shadow:
+  0 0 8px rgba(255,120,0,0.14);
 }
 
-.food-contact-left p{
+/* =========================
+   LEFT PARAGRAPH
+========================= */
+
+.food-contact-left > p{
 
   color:#d1d5db;
 
   line-height:1.9;
 
-  margin-bottom:35px;
+  margin-bottom:42px;
 
-  font-size:17px;
+  font-size:20px;
+
+  max-width:720px;
+}
+
+/* =========================
+   CONTACT CARDS WRAPPER
+========================= */
+
+.contact-cards-wrapper{
+
+  width:100%;
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:26px;
 }
 
 /* =========================
@@ -225,42 +151,48 @@ body{
 
 .food-contact-card{
 
+  width:100%;
+
+  min-height:130px;
+
   background:
-  rgba(255,255,255,0.08);
+  rgba(255,255,255,0.06);
 
   backdrop-filter:blur(14px);
 
   border:
-  1px solid rgba(255,255,255,0.08);
+  1px solid rgba(255,255,255,0.06);
 
-  border-radius:26px;
+  border-radius:34px;
 
-  padding:25px;
+  padding:24px 30px;
 
   display:flex;
 
   align-items:center;
 
-  gap:22px;
+  gap:26px;
 
-  margin-bottom:28px;
-
-  transition:0.4s ease;
+  transition:0.35s ease;
 
   box-shadow:
-  0 10px 30px rgba(0,0,0,0.3);
+  0 6px 16px rgba(0,0,0,0.18);
 }
+
+/* =========================
+   CARD HOVER
+========================= */
 
 .food-contact-card:hover{
 
   transform:
-  translateY(-8px);
+  translateY(-4px);
 
   background:
-  rgba(255,255,255,0.12);
+  rgba(255,255,255,0.08);
 
   box-shadow:
-  0 15px 35px rgba(255,90,0,0.25);
+  0 8px 18px rgba(255,90,0,0.12);
 }
 
 /* =========================
@@ -269,9 +201,11 @@ body{
 
 .food-contact-card span{
 
-  min-width:72px;
+  min-width:86px;
 
-  height:72px;
+  width:86px;
+
+  height:86px;
 
   border-radius:50%;
 
@@ -290,32 +224,59 @@ body{
 
   color:white;
 
-  font-size:30px;
+  font-size:36px;
+
+  flex-shrink:0;
 
   box-shadow:
-  0 8px 25px rgba(255,90,0,0.45);
+  0 0 10px rgba(255,90,0,0.14);
 }
 
 /* =========================
-   CARD TEXT
+   CARD CONTENT
+========================= */
+
+.contact-card-content{
+
+  flex:1;
+
+  display:flex;
+
+  flex-direction:column;
+
+  justify-content:center;
+
+  align-items:flex-start;
+
+  min-width:0;
+}
+
+/* =========================
+   CARD TITLE
 ========================= */
 
 .food-contact-card h3{
 
   color:white;
 
-  font-size:24px;
+  font-size:28px;
+
+  font-weight:700;
+
+  line-height:1.2;
 
   margin-bottom:8px;
 }
+
+/* =========================
+   CARD TEXT
+========================= */
 
 .food-contact-card p{
 
   color:#d1d5db;
 
-  margin:0;
-
-  font-size:15px;
+  font-size:20px;
 
   line-height:1.7;
 
@@ -328,9 +289,7 @@ body{
 
 .food-contact-right{
 
-  flex:1;
-
-  min-width:320px;
+  width:100%;
 }
 
 /* =========================
@@ -339,26 +298,28 @@ body{
 
 .food-contact-right form{
 
+  width:100%;
+
   background:
-  rgba(255,255,255,0.08);
+  rgba(255,255,255,0.06);
 
   backdrop-filter:blur(16px);
 
   border:
-  1px solid rgba(255,255,255,0.08);
+  1px solid rgba(255,255,255,0.06);
 
-  padding:45px;
+  padding:50px;
 
-  border-radius:32px;
+  border-radius:38px;
 
   display:flex;
 
   flex-direction:column;
 
-  gap:25px;
+  gap:28px;
 
   box-shadow:
-  0 15px 40px rgba(0,0,0,0.35);
+  0 8px 20px rgba(0,0,0,0.18);
 }
 
 /* =========================
@@ -370,36 +331,44 @@ body{
 
   width:100%;
 
-  padding:18px 20px;
-
   border:none;
-
-  border-radius:16px;
-
-  background:
-  rgba(255,255,255,0.1);
-
-  color:white;
-
-  font-size:17px;
 
   outline:none;
 
+  border-radius:22px;
+
+  padding:22px 24px;
+
+  background:
+  rgba(255,255,255,0.08);
+
+  color:white;
+
+  font-size:19px;
+
   transition:0.3s ease;
 }
+
+/* =========================
+   INPUT FOCUS
+========================= */
 
 .food-contact-right input:focus,
 .food-contact-right textarea:focus{
 
   background:
-  rgba(255,255,255,0.14);
+  rgba(255,255,255,0.12);
 
   border:
-  1px solid rgba(255,120,0,0.5);
+  1px solid rgba(255,120,0,0.24);
 
   box-shadow:
-  0 0 15px rgba(255,90,0,0.25);
+  0 0 6px rgba(255,90,0,0.08);
 }
+
+/* =========================
+   PLACEHOLDER
+========================= */
 
 .food-contact-right input::placeholder,
 .food-contact-right textarea::placeholder{
@@ -407,11 +376,15 @@ body{
   color:#d1d5db;
 }
 
+/* =========================
+   TEXTAREA
+========================= */
+
 .food-contact-right textarea{
 
   resize:none;
 
-  min-height:160px;
+  min-height:260px;
 }
 
 /* =========================
@@ -420,11 +393,13 @@ body{
 
 .food-contact-right button{
 
+  width:100%;
+
   border:none;
 
-  padding:18px;
+  border-radius:22px;
 
-  border-radius:16px;
+  padding:20px;
 
   background:
   linear-gradient(
@@ -435,140 +410,150 @@ body{
 
   color:white;
 
-  font-size:20px;
+  font-size:22px;
 
   font-weight:700;
 
   cursor:pointer;
 
-  transition:0.4s ease;
+  transition:0.35s ease;
+
+  box-shadow:
+  0 4px 10px rgba(255,90,0,0.12);
 }
+
+/* =========================
+   BUTTON HOVER
+========================= */
 
 .food-contact-right button:hover{
 
   transform:
-  scale(1.03);
+  translateY(-2px);
 
   box-shadow:
-  0 12px 30px rgba(255,80,0,0.45);
+  0 6px 14px rgba(255,80,0,0.16);
 }
 
 /* =========================
-   MOBILE VIEW
+   TABLET
 ========================= */
 
-@media(max-width:900px){
+@media(max-width:1100px){
+
+  .food-contact-container{
+
+    grid-template-columns:1fr;
+
+    gap:50px;
+  }
+
+  .food-contact-left h2{
+
+    font-size:52px;
+  }
+
+  .food-contact-right form{
+
+    padding:38px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
 
   .food-contact-page{
 
-    padding:50px 18px;
+    padding:60px 18px 40px;
 
     background-attachment:scroll;
   }
 
   .food-contact-container{
 
-    flex-direction:column;
-
-    gap:40px;
+    gap:38px;
   }
 
-  /* MOBILE TITLE */
-
-  .mobile-contact-title{
-
-    align-items:center;
-
-    justify-content:center;
-
-    text-align:center;
-
-    margin-bottom:18px;
-  }
-
-  .title-line-1{
-
-    font-size:48px;
-
-    line-height:0.95;
-
-    text-align:center;
-  }
-
-  .title-line-2{
-
-    font-size:48px;
-
-    line-height:0.95;
-
-    margin-top:-2px;
-
-    text-align:center;
-
-    justify-content:center;
-  }
-
-  /* SUBTITLE */
-
-  .food-contact-header p{
-
-    text-align:center;
-
-    padding:0 10px;
-
-    font-size:15px;
-
-    line-height:1.7;
-  }
-
-  /* LEFT TITLE */
+  /* TITLE */
 
   .food-contact-left h2{
 
-    font-size:30px;
+    font-size:40px;
 
-    line-height:1.2;
+    line-height:1.1;
 
-    text-align:center;
+    gap:12px;
   }
 
-  /* FORM */
+  /* PARAGRAPH */
 
-  .food-contact-right form{
+  .food-contact-left > p{
 
-    padding:28px;
+    font-size:16px;
+
+    line-height:1.7;
+
+    margin-bottom:30px;
   }
 
   /* CARD */
 
   .food-contact-card{
 
-    padding:20px;
+    min-height:auto;
+
+    border-radius:28px;
+
+    padding:20px 18px;
 
     gap:16px;
+
+    align-items:center;
   }
 
-  /* CARD ICON */
+  /* ICON */
 
   .food-contact-card span{
 
-    min-width:58px;
+    min-width:64px;
 
-    height:58px;
+    width:64px;
 
-    font-size:22px;
+    height:64px;
+
+    font-size:26px;
   }
 
-  /* CARD TEXT */
+  /* TITLE */
 
   .food-contact-card h3{
 
-    font-size:20px;
+    font-size:22px;
+
+    margin-bottom:4px;
   }
+
+  /* TEXT */
 
   .food-contact-card p{
 
-    font-size:14px;
+    font-size:15px;
+
+    line-height:1.6;
+  }
+
+  /* FORM */
+
+  .food-contact-right form{
+
+    padding:24px;
+
+    border-radius:30px;
+
+    gap:20px;
   }
 
   /* INPUT */
@@ -576,14 +561,29 @@ body{
   .food-contact-right input,
   .food-contact-right textarea{
 
-    font-size:15px;
+    padding:18px 18px;
+
+    border-radius:18px;
+
+    font-size:16px;
+  }
+
+  /* TEXTAREA */
+
+  .food-contact-right textarea{
+
+    min-height:180px;
   }
 
   /* BUTTON */
 
   .food-contact-right button{
 
-    font-size:17px;
+    border-radius:18px;
+
+    padding:18px;
+
+    font-size:18px;
   }
 }
 
@@ -593,14 +593,41 @@ body{
 
 @media(max-width:480px){
 
-  .title-line-1{
+  .food-contact-left h2{
 
-    font-size:42px;
+    font-size:34px;
   }
 
-  .title-line-2{
+  .food-contact-card{
 
-    font-size:42px;
+    padding:18px 16px;
+
+    border-radius:24px;
   }
 
+  .food-contact-card span{
+
+    min-width:56px;
+
+    width:56px;
+
+    height:56px;
+
+    font-size:22px;
+  }
+
+  .food-contact-card h3{
+
+    font-size:18px;
+  }
+
+  .food-contact-card p{
+
+    font-size:14px;
+  }
+
+  .food-contact-right form{
+
+    padding:20px;
+  }
 }

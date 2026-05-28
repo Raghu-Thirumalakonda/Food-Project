@@ -85,7 +85,7 @@ body{
   letter-spacing:1px;
 
   text-shadow:
-    0 0 25px rgba(255,140,0,0.7);
+    0 0 18px rgba(255,140,0,0.35);
 }
 
 /* =========================
@@ -121,27 +121,31 @@ body{
   border-radius:30px;
 
   background:
-    rgba(255,255,255,0.07);
+    rgba(255,255,255,0.06);
 
-  backdrop-filter:blur(16px);
+  backdrop-filter:blur(14px);
 
   border:
-    1px solid rgba(255,255,255,0.12);
+    1px solid rgba(255,255,255,0.10);
 
   box-shadow:
-    0 0 30px rgba(255,140,0,0.15);
+    0 0 18px rgba(255,140,0,0.10);
 
   transition:0.4s ease;
+
+  padding-bottom:24px;
 }
+
+/* HOVER */
 
 .dessert-card:hover{
 
   transform:
-    translateY(-12px)
-    scale(1.02);
+    translateY(-10px)
+    scale(1.01);
 
   box-shadow:
-    0 0 40px rgba(255,140,0,0.5);
+    0 0 24px rgba(255,140,0,0.18);
 }
 
 /* =========================
@@ -173,7 +177,7 @@ body{
 .dessert-card:hover
 .dessert-img{
 
-  transform:scale(1.08);
+  transform:scale(1.05);
 }
 
 /* =========================
@@ -221,7 +225,7 @@ body{
   font-weight:700;
 
   box-shadow:
-    0 0 15px rgba(186,104,200,0.5);
+    0 0 10px rgba(186,104,200,0.18);
 }
 
 /* =========================
@@ -248,7 +252,7 @@ body{
   font-weight:700;
 
   box-shadow:
-    0 0 15px rgba(255,94,0,0.5);
+    0 0 10px rgba(255,94,0,0.18);
 }
 
 /* =========================
@@ -257,7 +261,7 @@ body{
 
 .dessert-info{
 
-  padding:25px;
+  padding:24px;
 
   display:flex;
 
@@ -278,11 +282,11 @@ body{
 
   display:flex;
 
-  align-items:center;
+  align-items:flex-start;
 
   justify-content:space-between;
 
-  gap:12px;
+  gap:16px;
 
   margin-bottom:14px;
 }
@@ -303,7 +307,7 @@ body{
 
   text-align:left;
 
-  line-height:1.3;
+  line-height:1.28;
 
   flex:1;
 }
@@ -320,37 +324,38 @@ body{
 
   justify-content:center;
 
-  min-width:82px;
+  gap:6px;
 
-  height:42px;
+  min-width:88px;
 
-  padding:0 14px;
+  height:40px;
 
-  border-radius:50px;
+  padding:0 16px;
+
+  border-radius:18px;
 
   background:
     linear-gradient(
       135deg,
       #ffb800,
-      #ff7b00
+      #ff8c00
     );
 
   color:white;
 
-  font-size:0.95rem;
+  font-size:0.92rem;
 
   font-weight:700;
 
-  letter-spacing:0.5px;
+  letter-spacing:0.3px;
 
   border:
-    1px solid rgba(255,255,255,0.15);
+    1px solid rgba(255,255,255,0.10);
 
   backdrop-filter:blur(10px);
 
   box-shadow:
-    0 0 12px rgba(255,184,0,0.5),
-    0 0 25px rgba(255,123,0,0.3);
+    0 0 8px rgba(255,184,0,0.14);
 
   transition:0.35s ease;
 
@@ -365,11 +370,10 @@ body{
 .dessert-rating-badge{
 
   transform:
-    scale(1.08);
+    scale(1.04);
 
   box-shadow:
-    0 0 18px rgba(255,184,0,0.8),
-    0 0 35px rgba(255,123,0,0.5);
+    0 0 12px rgba(255,184,0,0.20);
 }
 
 /* =========================
@@ -397,16 +401,16 @@ body{
 
 .dessert-price{
 
-  color:#ff9f1c;
+  color:#ffb347;
 
-  font-size:2rem;
+  font-size:1.9rem;
 
-  margin-bottom:25px;
+  margin-bottom:24px;
 
   font-weight:800;
 
   text-shadow:
-    0 0 15px rgba(255,153,0,0.5);
+    0 0 10px rgba(255,179,71,0.16);
 }
 
 /* =========================
@@ -421,6 +425,8 @@ body{
 
   width:85%;
 
+  height:60px;
+
   padding:16px;
 
   border-radius:18px;
@@ -434,24 +440,32 @@ body{
 
   color:white;
 
-  font-size:1.1rem;
+  font-size:1.08rem;
 
   font-weight:700;
 
   cursor:pointer;
 
-  transition:0.4s ease;
+  transition:0.35s ease;
 
   box-shadow:
-    0 0 25px rgba(255,140,0,0.3);
+    0 0 12px rgba(255,140,0,0.16);
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
 }
+
+/* BUTTON HOVER */
 
 .dessert-btn:hover{
 
-  transform:scale(1.05);
+  transform:scale(1.03);
 
   box-shadow:
-    0 0 35px rgba(255,140,0,0.7);
+    0 0 18px rgba(255,140,0,0.24);
 }
 
 /* =========================
@@ -517,10 +531,10 @@ body{
       #ff5e00
     );
 
-  transform:translateY(-5px);
+  transform:translateY(-4px);
 
   box-shadow:
-    0 0 20px rgba(255,140,0,0.5);
+    0 0 14px rgba(255,140,0,0.20);
 }
 
 /* =========================
@@ -537,7 +551,7 @@ body{
     );
 
   box-shadow:
-    0 0 20px rgba(255,140,0,0.6);
+    0 0 14px rgba(255,140,0,0.22);
 }
 
 /* =========================
@@ -562,6 +576,8 @@ body{
   .page-layout{
 
     flex-direction:column;
+
+    background-attachment:scroll;
   }
 
   .desserts-page{
@@ -608,20 +624,28 @@ body{
 
   .dessert-price{
 
-    font-size:1.6rem;
+    font-size:1.7rem;
   }
 
   .dessert-rating-badge{
 
-    min-width:72px;
+    min-width:76px;
 
     height:38px;
 
-    font-size:0.8rem;
+    border-radius:16px;
+
+    font-size:0.82rem;
   }
 
   .dessert-btn{
 
     width:90%;
+
+    height:56px;
+
+    border-radius:16px;
+
+    font-size:1rem;
   }
 }

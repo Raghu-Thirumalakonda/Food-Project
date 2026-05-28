@@ -293,16 +293,15 @@ const Home = () => {
 
         <div className="hero-section">
 
-          <h1>
+          <h1 className="hero-title">
 
-            Delicious Food,
+              Delicious Food,
 
-            <span>
-              {" "}
-              Delivered Fast
-            </span>
+             <span className="hero-highlight">
+                Delivered Fast
+             </span>
 
-          </h1>
+            </h1>
 
           <p>
 
@@ -525,7 +524,7 @@ const Home = () => {
                 <div className="category-card veg">
 
                   <h3>
-                    🥗 Veg
+                     Veg
                   </h3>
 
                   <p>
@@ -544,7 +543,7 @@ const Home = () => {
                 <div className="category-card nonveg">
 
                   <h3>
-                    🍗 Non-Veg
+                   Non-Veg
                   </h3>
 
                   <p>
@@ -563,7 +562,7 @@ const Home = () => {
                 <div className="category-card juice">
 
                   <h3>
-                    🥤 Juices
+                     Juices
                   </h3>
 
                   <p>
@@ -582,7 +581,7 @@ const Home = () => {
                 <div className="category-card dessert">
 
                   <h3>
-                    🧁 Desserts
+                     Desserts
                   </h3>
 
                   <p>
@@ -609,12 +608,16 @@ const Home = () => {
 
           <div className="footer-box">
 
-            <h1 className="footer-logo">
+            <div className="footer-logo">
 
-              Food Hub 🍴
+  <div className="logo-text">
+    <span>Food</span>
+    <span>Hub</span>
+  </div>
 
-            </h1>
+  <span>🍴</span>
 
+</div>
             <p className="footer-text">
 
               Good Food, Good Mood,

@@ -48,20 +48,10 @@ function Contact() {
 
         <h1 className="mobile-contact-title">
 
-          <div className="title-line-1">
-            Contact
-          </div>
 
-          <div className="title-line-2">
-            Food Hub 🍔
-          </div>
-
+    
         </h1>
 
-        <p>
-          We are always ready to help you with
-          your food orders and delivery support.
-        </p>
 
       </div>
 
