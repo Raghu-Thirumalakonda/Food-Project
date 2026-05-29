@@ -107,39 +107,146 @@ body{
   z-index:5;
 }
 
+
+/* =========================
+   HERO TITLE
+========================= */
 /* =========================
    HERO SECTION
 ========================= */
 
 .hero-section{
   text-align:center;
-
-  margin-top:20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  width:100%;
 }
 
-.hero-section h1{
-  font-size:70px;
+.hero-title{
+  width:100%;
+  max-width:1200px;
 
-  font-weight:800;
+  font-size:72px;
+  font-weight:900;
 
-  color:white;
+  line-height:1.05;
 
-  text-shadow:
-  0 5px 18px rgba(0, 0, 0, 0.9);
+  color:#fff;
+
+  text-align:center;
+
+  letter-spacing:-1px;
+
+  margin-bottom:18px;
+
+  display:block;
+
+  white-space:nowrap;
+
+  margin-left:auto;
+  margin-right:auto;
 }
 
-.hero-section span{
-  color: rgba(215, 188, 10, 0.981);
+.hero-highlight{
+  display:inline;
+  color:#f5c400;
+  font-size:inherit;
+  font-weight:inherit;
 }
 
-.hero-section p{
-  margin-top:16px;
-
+.hero-subtitle{
   font-size:22px;
+  line-height:1.6;
+  color:#f1f1f1;
 
-  color:#f2f2f2;
+  max-width:650px;
+
+  text-align:center;
+
+  margin:0 auto;
 }
 
+/* =========================
+   TABLET
+========================= */
+
+@media(max-width:992px){
+
+  .hero-title{
+    font-size:56px;
+    white-space:nowrap;
+  }
+
+  .hero-subtitle{
+    font-size:20px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+  .hero-section{
+    text-align:center;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .hero-title{
+    font-size:42px;
+    line-height:1.15;
+
+    white-space:normal;
+
+    text-align:center;
+
+    padding:0 10px;
+  }
+
+  .hero-highlight{
+    display:inline;
+    font-size:inherit;
+  }
+
+  .hero-subtitle{
+    font-size:18px;
+    line-height:1.6;
+
+    max-width:95%;
+
+    text-align:center;
+
+    margin:0 auto;
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media(max-width:480px){
+
+  .hero-title{
+    font-size:34px;
+    line-height:1.2;
+    white-space:normal;
+  }
+
+  .hero-highlight{
+    font-size:inherit;
+    display:inline;
+  }
+
+  .hero-subtitle{
+    font-size:16px;
+    text-align:center;
+    max-width:100%;
+  }
+}
 /* =========================
    SEARCH BOX
 ========================= */
@@ -418,10 +525,10 @@ body{
   text-align:center;
 }
 
-.slider-text h3{
+.slider-text h4{
   font-size:30px;
 
-  color:black;
+  color:rgb(210, 187, 16);
 
   margin-bottom:14px;
 
@@ -1776,40 +1883,162 @@ body{
    HERO TITLE
 ========================= */
 
-.hero-title{
+
+
+
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero-section{
+  width:100%;
+  text-align:center;
+
   display:flex;
   flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+.hero-title{
+  width:100%;
+  max-width:1200px;
 
   font-size:72px;
   font-weight:900;
 
-  line-height:0.92;
+  line-height:1.05;
+
+  color:#fff;
+
+  text-align:center;
+
+  letter-spacing:-1px;
 
   margin-bottom:18px;
 
-  color:#ffffff;
-
-  letter-spacing:-2px;
-}
-
-.hero-highlight{
-  color:#f5c400;
+  display:block;
 
   white-space:nowrap;
 
-  display:block;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.hero-highlight{
+  display:inline;
+
+  color:#f5c400;
+
+  font-size:inherit;
+
+  font-weight:inherit;
 }
 
 .hero-subtitle{
   font-size:22px;
 
-  line-height:1.6;
-
   color:#f1f1f1;
 
   max-width:650px;
+
+  text-align:center;
+
+  margin:0 auto;
+
+  line-height:1.6;
 }
 
+/* =========================
+   TABLET
+========================= */
+
+@media(max-width:992px){
+
+  .hero-title{
+    font-size:56px;
+    white-space:nowrap;
+  }
+
+  .hero-subtitle{
+    font-size:20px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+  .hero-section{
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+  }
+
+  .hero-title{
+    font-size:42px;
+
+    line-height:1.15;
+
+    text-align:center;
+
+    white-space:normal;
+
+    padding:0 10px;
+  }
+
+  .hero-highlight{
+    display:inline;
+
+    font-size:inherit;
+  }
+
+  .hero-subtitle{
+    font-size:18px;
+
+    text-align:center;
+
+    max-width:95%;
+
+    margin:0 auto;
+
+    line-height:1.6;
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media(max-width:480px){
+
+  .hero-title{
+    font-size:34px;
+
+    line-height:1.2;
+
+    white-space:normal;
+  }
+
+  .hero-highlight{
+    display:inline;
+
+    font-size:inherit;
+
+    line-height:inherit;
+  }
+
+  .hero-subtitle{
+    font-size:15px;
+
+    text-align:center;
+
+    max-width:100%;
+  }
+}
 /* =========================
    TABLET
 ========================= */

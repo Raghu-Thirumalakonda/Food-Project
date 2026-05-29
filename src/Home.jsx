@@ -294,21 +294,12 @@ const Home = () => {
         <div className="hero-section">
 
           <h1 className="hero-title">
+  Delicious Food, <span className="hero-highlight">Delivered Fast</span>
+</h1>
 
-              Delicious Food,
-
-             <span className="hero-highlight">
-                Delivered Fast
-             </span>
-
-            </h1>
-
-          <p>
-
-            Order your favorite meals
-            from top restaurants anytime.
-
-          </p>
+<p className="hero-subtitle">
+  Order your favorite meals from top restaurants anytime.
+</p>
 
           {/* SEARCH */}
 
@@ -456,9 +447,9 @@ const Home = () => {
 
               <div className="slider-text">
 
-                <h3>
+                <h4>
                   Tasty Food
-                </h3>
+                </h4>
 
                 <h2>
                   {currentItem.title}
